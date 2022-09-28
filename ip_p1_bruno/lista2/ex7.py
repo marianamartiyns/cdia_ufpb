@@ -1,6 +1,8 @@
 # Entrada de dados
+print("\n-- Loja da Lara --")
 vp = float(input("\nDigite o Valor do Produto Comprado: "))
-fp = float(input("Digite a Forma de Pagamento (1 - Dinheiro, 2 - Cheque): "))
+print("\n1 - Dinheiro\n2 - Cheque\n")
+fp = float(input("Digite a Forma de Pagamento: "))
 
 # vp == Valor do Produto; 
 # fp == Forma de Pagamento;

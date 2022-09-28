@@ -1,3 +1,5 @@
+# Entrada de Dados
+print("\n-- Cálculo e Analíse da Média --")
 n1 = float(input("Digite a Primeira nota: "))
 n2 = float(input("Digite a Segunda nota: "))
 

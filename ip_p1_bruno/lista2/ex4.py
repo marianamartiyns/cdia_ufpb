@@ -1,4 +1,6 @@
-turno = (input("Digite o turno que você estuda, \n M (matutino)\n V (vespertino)\n N (noturno):\n "))
+# Entrada de dados
+print("\n (M) para matutino\n (V) para vespertino\n (N) para noturno")
+turno = (input("Digite o turno que você estuda: ")).upper()
 
 if turno == 'M':
     print("Bom Dia!")

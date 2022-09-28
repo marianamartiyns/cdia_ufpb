@@ -1,22 +1,24 @@
 # Entrada de dados
+print("\n-- Loja da Lara --")
+vp = float(input("\nDigite o Valor do Produto Comprado: "))
+print("\n 1 - Dinheiro\n 2 - Cheque\n 3 - Cartão\n")
+fp = float(input("Digite a Forma de Pagamento: "))
 
-# tc == Tipo do Cartão;
 # vp == Valor do Produto; 
 # fp == Forma de Pagamento;
 # vd == Valor com Desconto;
-
-vp = float(input("\nDigite o Valor do Produto Comprado: "))
-print("\n 1 - Dinheiro\n 2 - Cheque\n 3 - Cartão\n")
-fp = float(input("Digite a Forma de Pagamento : "))
+# tc == Tipo do Cartão;
+# parc == Parcelas;
+# v_parc == Valor Parcelado;
 
 if  fp == 3: 
     print("\n 1 - Débito\n 2 - Crédito\n")
-    tc = input("Escolha o Tipo de Cartão: ")
+    tc = float(input("Escolha o Tipo de Cartão: "))
     
-if tc == 2:
-    parc = (input("\nDigite em quantas parcelas você gostaria de parcelar (2 ou 3): "))  
-    
-#
+    if tc == 2:
+        print("\nParcelamento feito em ATÉ 3x!")
+        parc = float(input("Digite em quantas parcelas você gostaria de parcelar (1, 2 ou 3): "))  
+        
 
 if fp == 1: #dinheiro
     
@@ -33,12 +35,23 @@ elif fp == 2: #cheque
 elif fp == 3: #cartão
     
     if tc == 1: #tipo do cartão == débito
-        print(f"O total a pagar é R${vp}.")
+        print(f"\nO total a pagar é R${vp}.")
     
     elif tc == 2: #tipo do cartão == crédito
-        if parc == 2:
+        
+        if parc == 1:
+            v_parc = vp / 1
+            print(f"\nO valor a pagar será R$ {v_parc} parcelado em 1 vezes.")
+            
+        elif parc == 2:
             v_parc = vp / 2
-            print(f"O valor a pagar será R$ {v_parc} parcelado em 2 vezes.")
+            print(f"\nO valor a pagar será R$ {v_parc} parcelado em 2 vezes.")
+            
         elif parc == 3:
             v_parc = vp / 3
-            print(f"O valor a pagar será R$ {v_parc} parcelado em 3 vezes.")
+            print(f"\nO valor a pagar será R$ {v_parc} parcelado em 3 vezes.")
+            
+        else:
+            print("\nQuantidade de Parcelas Invalídas!")
+            
+print("\n-- Fim do Atendimento --\n")
