@@ -1,19 +1,37 @@
-maior = menor = 0
-n = 1
+#maior = menor = n = soma = 0
+# o menor ta dando errad
 
-for i in range(n):
-    while n != -1:
-        print("\nDigite [-1] para interromper o programa")
-        n = int(input("Digite um valor: "))
+n = soma = 0
+
+while n != -1 :
+    
+    print("\nDigite [-1] para interromper o programa.")
+    n = int(input("Digite um valor: "))
+    
+    if n != -1:
         
-        if n == 1:
-            maior = n
-            menor = n
- 
+        maior = menor = n
+        
         if n > maior:
             maior = n
-            
+
         if n < menor:
             menor = n
-        
-print(f"\nO Maior e Menor número digitado foi, respectivamente, {maior} e {menor}\n")
+            
+        soma = (soma + n)
+    
+print(f"\nO Maior e Menor número digitado foi, respectivamente, {maior} e {menor}, e a soma dos valores é: {soma}\n")
+
+'''a = int(input("Digite um número: "))
+soma = 0
+maior = menor = a
+
+while a != -1:
+    if a > maior:
+        maior = a
+    if a < menor:
+        menor = a
+    a = int(input("Digite outro número: "))
+    soma = soma + a
+    
+print (maior, menor, soma)'''

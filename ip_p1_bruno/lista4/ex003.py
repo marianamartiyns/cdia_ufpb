@@ -1,3 +1,5 @@
+#nao deu certo 
+
 x = 70000
 y = 180000
 c = 0
