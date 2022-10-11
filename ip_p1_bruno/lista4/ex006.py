@@ -15,8 +15,9 @@ print("\nDigite [0] para ver o total das compras.")
 prod = int(input("\nDigite o código do produto? "))
 quant = int(input("Digite a quantidade desejada: "))
 
+soma = total = 0
 
-while prod != 0:
+while quant != 0:
         
     if prod == 1:
         t = quant * 5.50
@@ -32,10 +33,18 @@ while prod != 0:
         
     elif prod == 5:
         t = quant * 9.30
+        
+    elif prod == 0:
+        break
+    
+    else:
+        t = 0
+        print("Código Invalido!")
+
 
     prod = int(input("\nDigite o código do produto? "))
     quant = int(input("Digite a quantidade desejada: "))
     
-    total =+ t
+    total = total + t
       
-print(total)
+print(f"\nO Total da Compra foi: R$ {total:.2f}.")
