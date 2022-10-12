@@ -1,4 +1,4 @@
-# Soma de todos os números ímpares múltiplos de 3 entre 1 e 500.
+# Soma de Todos os Números Ímpares Múltiplos de 3 entre 1 e 500.
 
 soma = 0
 n = 1

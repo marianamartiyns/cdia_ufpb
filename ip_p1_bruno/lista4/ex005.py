@@ -1,31 +1,28 @@
+# Leitura dos Dados Referente a uma Dívida e Cálculo dos Meses até a Mesma ser Quitada.
 
-divida = float(input("Qual o Valor Inicial da sua Dívida? ")) # Valor Inicial
+divida = float(input("\nQual o Valor Inicial da sua Dívida? ")) # Valor Inicial
 
-jurm = float(input("Qual é o Juros Mensal? "))
+jurm = float(input("Qual é o Juros Mensal? (ex: 3% = 0.03): ")) # Juros por Mês
 
-pagm = float(input("Quanto será pago por mês? "))
+parcela = float(input("Quanto será pago por mês? ")) # Pagamento por Mês
 
-mes = 1
-
+meses = divida / parcela
 saldo = divida
-juros = 0
+juros = total = c = 0
 
-if(divida * jurm/100 > pagm):
-    print("Erro, Valor Invalído")
+
+if (divida * jurm) > parcela:
+    print("Valor Não Compatível")
     
 else: 
-    saldo = divida
-    jurp = 0
+    while meses != juros:
+        parcela = parcela + (parcela + juros)
+        total = total + parcela
+        c += 1
     
-    while saldo > pagm:
-        jur = saldo * (jurm/100)
-        saldo = saldo + jur - pagm
-        jurp =+ jur
-        mes =+ 1
-        
-saldo = divida + jurp
+    saldo = saldo + juros
 
-print(f"A divida podera ser paga em {mes} meses, com um total pago de {saldo} e o total de juros de {jurp}")
+print(f"A divida poderá ser paga em {meses} meses, com um total pago de {saldo} e o total de juros de {c}")
 
 
 
