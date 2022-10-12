@@ -1,6 +1,4 @@
 # Simulação de um Sistemas de Vendas
-
-t = 0
  
 print('''
       TABELA DE CÓDIGOS: 
@@ -15,7 +13,7 @@ print("\nDigite [0] para ver o total das compras.")
 prod = int(input("\nDigite o código do produto? "))
 quant = int(input("Digite a quantidade desejada: "))
 
-soma = total = 0
+soma = total = t = 0
 
 while quant != 0:
         
