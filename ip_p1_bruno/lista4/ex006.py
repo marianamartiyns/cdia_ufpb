@@ -16,7 +16,7 @@ quant = int(input("Digite a quantidade desejada: "))
 soma = total = t = 0
 
 while quant != 0:
-        
+     
     if prod == 1:
         t = quant * 5.50
         
@@ -31,13 +31,13 @@ while quant != 0:
         
     elif prod == 5:
         t = quant * 9.30
-        
+   
     elif prod == 0:
         break
     
     else:
         t = 0
-        print("Código Invalido!")
+        print("Código Invalído!")
 
 
     prod = int(input("\nDigite o código do produto? "))

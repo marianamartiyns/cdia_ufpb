@@ -5,7 +5,7 @@ n = float(input("Digite um número para calcular sua raiz: "))
 b = 2
 p = (b + (n/2)) / 2
 
-dif = n - (b *b) #diferença
+dif = n - (b *b) # Diferença
 
 while abs(dif) < 0.0001:
     
