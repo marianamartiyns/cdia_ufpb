@@ -3,14 +3,16 @@
 di = float(input("Digite o Depósito Inicial: ")) # Depósito Inicial
 tj = float(input("Quanto é a Taxa de Juros? (ex: 3% = 0.03) ")) # Taxa de Juros
 
-n = 0
+tg = juros = 0
+dep = di - (di * tj) # Depósito
+
 for c in range(1, 25):
     
-    valor = (di * tj)
+    dep = dep - (dep * tj)
     
-    print(f"Para o mês {c} o Valor Ficará {valor}")
+    print(f"Para o {c}º mês o Valor Ficará {dep:.2f}")
     
-    n += valor
+    tg += dep # Total Ganho
+    juros += dep * tj
     
-tg = n - tj
-print(tg)
+print(f"\nTotal Acumulado em 24 meses será: R${tg:.2f}, com um desconto total de juros de R${juros:.2f}.")
