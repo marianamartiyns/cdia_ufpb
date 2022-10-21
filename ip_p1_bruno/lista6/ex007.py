@@ -1,5 +1,5 @@
-# VERIFICAÇÃO SE UM NÚMERO É PRIMO
 
+print("VERIFICAÇÃO: SE UM NÚMERO É PRIMO OU NÃO.")
 n = int(input("Digite um número: "))
 d = 0
 

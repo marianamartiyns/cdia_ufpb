@@ -1,5 +1,6 @@
 # MÉDIA DE UMA TURMA
 
+print("MÉDIA DA TURMA")
 n = 1
 idades = t = 0
 

@@ -1,5 +1,6 @@
 # ELEIÇÃO
 
+print("ELEIÇÃO")
 c1 = c2 = c3 = 0
 total_ele = int(input("\nDigite o total de eleitores: "))
 

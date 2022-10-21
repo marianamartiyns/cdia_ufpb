@@ -1,5 +1,6 @@
 # POTÊNCIAÇÃO COM FOR
 
+print("== POTÊNCIAÇÃO ==")
 b = int(input("Digite um valor para a BASE: "))
 e = int(input("Digite um valor para o EXPOENTE: "))
 
