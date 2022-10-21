@@ -1,7 +1,6 @@
 # ELEIÇÃO
 
 c1 = c2 = c3 = 0
-
 total_ele = int(input("\nDigite o total de eleitores: "))
 
 print(''' 
@@ -22,6 +21,9 @@ for c in range(total_ele):
         
     if voto == 30:
         c3 += 1
+        
+    if voto != 10 and voto != 20 and voto != 30:
+        print("Número Invalído. O voto será considerado como NULO.")
 
     
 print(f'''
