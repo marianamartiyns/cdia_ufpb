@@ -1,9 +1,9 @@
-d = float(input("Digite a distância em KM da sua Viagem: "))
+valores = []
 
-if d > 200:
-    custo = d * 0.45
-    
-else:
-    custo = d * 0.50
-    
-print(f"Sua viagem terá {d}, por isso seu custo será {custo:.2f}") 
+valores.append(3)
+valores.append(5)
+valores.append(7)
+
+for c, v in enumerate(valores):
+    print(f"Na posição {c} encontrei o valor {v}!")
+print("Fim da Lista")
