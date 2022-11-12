@@ -9,11 +9,8 @@ print("\nMatriz sem alteração:")
 for i in range(3):
     print(m[i])
 
-# Segunda Linha
 print("\nDestacando as Variavéis: ")
 print(f"Segunda linha: {m[1][0]}, {m[1][1]}, {m[1][2]}.")
-
-# Segunda Coluna
 print(f"Segunda Coluna: {m[0][1]}, {m[1][1]}, {m[2][1]}.") 
 
 # Salvando as variaveis da linha anterior para mudar as colunas.
