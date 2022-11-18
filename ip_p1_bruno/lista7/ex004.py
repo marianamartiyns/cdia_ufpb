@@ -1,9 +1,10 @@
 import random
+
 x1 = x2 = x3 = x4 = x5 = x6 = 0
 faces = []
 
-print("=== Simulador de Dados ====")
-n = int(input("Digite o nº de vezes que o dado será lançado: "))
+print("\n== Simulador de Dados ==")
+n = int(input("\nDigite o nº de vezes que o dado será lançado: "))
 
 for i in range(n):
     
@@ -24,7 +25,7 @@ for i in range(n):
         x6 += 1 
  
         
-print(f"\nOs números sorteados foram: {faces}.")    
+print(f"\nOs números sorteados foram: {faces}.") 
 print(f"""
     Número 1 saiu {x1} vezes. Seu percentual de surgimento foi: {x1/n*100:.0f}%.
     Número 2 saiu {x2} vezes. Seu percentual de surgimento foi: {x2/n*100:.0f}%.

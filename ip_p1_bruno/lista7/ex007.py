@@ -1,5 +1,6 @@
+print(" == Leitor de Frases ==")
+print("\nDigite [1] para Encerrar o Programa.")
 
-print("\nDigite 1 para Encerrar o Programa.")
 frase = 0
 lista = []
 
@@ -21,4 +22,5 @@ while frase != 1:
 
     if (frase != 1):
         print(d)
+
 

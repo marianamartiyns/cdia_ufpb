@@ -24,8 +24,8 @@ for i in range(n):
     p1 += x
     p2 += y
 
-# Distância Euclidiana
 
+# Distância Euclidiana
 for i in range(n):
     
     m = p1[i] - p1[i+1]

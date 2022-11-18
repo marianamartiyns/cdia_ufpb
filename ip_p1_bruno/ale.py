@@ -1,9 +1,13 @@
-valores = []
+def contador(ini, fim, passo):
+    print('----'*5)
+    
+    print('----'*5)
 
-valores.append(3)
-valores.append(5)
-valores.append(7)
 
-for c, v in enumerate(valores):
-    print(f"Na posição {c} encontrei o valor {v}!")
-print("Fim da Lista")
+   
+contador(1, 10, 1)
+contador(10, 0, 2)
+i = input("Digite o ínicio: ")
+f = input("Digite o fim: ")
+p = input("Digite o passo: ")
+contador(i, f , p)

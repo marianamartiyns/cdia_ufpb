@@ -4,6 +4,7 @@ tab = [ " ","a","b","c","d","e", "f","g", "h", "i", "j", "k", "l", "m", "n", "o"
 lista = []
 x = 0
 
+print("\n== Tradutor ==")
 print("\nDigite um [30] para Traduzir a mensagem.")
 
 while (x != 30 ):
