@@ -1,46 +1,47 @@
-med = d = 0
+max = min = med = c = soma = 0
+
+coord_x = []
+coord_y = []
 
 print("\n== Distância dos N pontos ==")
 n = int(input("\nDigite a quantidade de pontos: "))
 
-p1 = ()  
-p2 = ()
+#pontos = [None] * n
 
 for i in range(n):
     
-    x = (input(f"\nDigite a coordenada x do ponto {i+1}: ") ,) 
-    y = (input(f"Digite a coordenada y do ponto {i+1}: ") ,) 
-
-    p1 += x
-    p2 += y
-
-
+    coord_x.append(int(input(f"\nDigite a coordenada x do ponto {i+1}: ")))
+    coord_y.append(int(input(f"Digite a coordenada y do ponto {i+1}: ")))
+    
 for i in range(n):
-    
-    dist = []
-    
-    # Distância Euclidiana = √((x1 – x2)² + (y1 – y2)²)
-    m = ((p1[i][0]) - (p1[i][i+1])) ** 2
-    n = ((p2[i][0]) - (p2[i][i+1])) ** 2
-    
-    d = ( m + n ) ** (1/2)
-    
-    med += d
-    dist.append(d)
-
-    if i == 0:
-        max = min = d
-    
-    if d >= max:
-        max = d
+    for j in range(n):
         
-    if d <= min:
-        min = d
-
-
-media = med / n
-
-print(f"\nAs coordenadas X inseridas foram: {p1}")
-print(f"As coordenadas Y inseridas foram: {p2}")
-print(f"Distância entre os pontos {p1[i]}, {p2[i]} é {dist[i]}")
-print(f"A distância maxíma foi {max} e a mínima foi {min}\n")
+        if j != i:
+            # Distância Euclidiana = √((x1 – x2)² + (y1 – y2)²)
+            if i == 0:
+                dist = ((coord_x[j] - coord_x[i] ** 2) + (coord_y[j] - coord_y[i] ** 2) ** 1/2)
+                max = min = dist
+                
+            else:
+                dist = dist = ((coord_x[j] - coord_x[i] ** 2) + (coord_y[j] - coord_y[i] ** 2) ** 1/2)
+                
+                if dist > max:
+                    max = dist
+                    
+                elif dist <= min:
+                    min = dist
+            
+            c += 1
+            soma += dist
+                
+pontos = ()
+for i in range(n):
+    
+    pontos += ((coord_x[i], coord_y[i]),)
+    
+med = soma / c
+    
+print(f"\nAs coordenadas X inseridas foram: {coord_x}")
+print(f"As coordenadas Y inseridas foram: {coord_y}")
+print(f"As coordenadas dos {n} pontos ficaram {pontos}.")
+print(f"A distância maxíma foi {max:.1f}, a mínima foi {min:.1f} e a média foi {med:.1f}.\n")
