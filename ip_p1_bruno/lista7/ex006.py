@@ -6,8 +6,6 @@ coord_y = []
 print("\n== Distância dos N pontos ==")
 n = int(input("\nDigite a quantidade de pontos: "))
 
-#pontos = [None] * n
-
 for i in range(n):
     
     coord_x.append(int(input(f"\nDigite a coordenada x do ponto {i+1}: ")))
