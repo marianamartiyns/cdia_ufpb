@@ -1,21 +1,23 @@
-def contador(str):
-    
-    str.split()
-    tamanho = len(str)
-    
-    for i in range(tamanho):
+def contador(n):
+
+    lista = []
+    lista.append(n)
+    letras = len(n)
+
+    '''for i in range(letras):
         
-        if str[i] == str:
-            c += 1
+        d = {}
+        if lista[i] not in d:
+            d[lista[i]] = 1
         
-    quant = {'str' : c }
+        else:
+            #add = d[lista[i]] + 1
+            d[lista[i]] =+ 1
+            #d[lista[i]] = add
+'''
+    return lista
     
 print("== Contador de Strings ==")
-
 frase = input("Digite uma frase: ").lower()
 
-#caractere = input("Digite o caractere que deseja contar: ").lower()
-
-contador(frase)
-
-print(quant)
+print(contador(frase))

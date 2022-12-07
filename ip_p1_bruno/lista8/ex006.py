@@ -1,7 +1,8 @@
-frase = input("Digite Alguma Coisa: ")
+def str_escada(n):
 
-list(frase)
-print(frase)
-'''for c in frase: 
-    x = c + frase[i]
-    print(c)'''
+    for i in range(len(n)): 
+        print(n[:i+1])
+  
+print("== STRING EM FORMATO DE ESCADA ==")  
+nome = input("Digite uma palavra/frase: ").upper() 
+str_escada(nome)
