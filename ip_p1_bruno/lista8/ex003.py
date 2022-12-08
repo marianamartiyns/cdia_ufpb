@@ -1,10 +1,13 @@
-print("== Validação do CPF ==")
+print("\n== Validação do CPF ==")
 
 cpf = input("Digite um CPF(no formato: xxx.xxx.xxx-xx): ")
+tam_cpf = len(cpf)
 
-if 
+if tam_cpf == 14:
+    if '.' in cpf[3]:
+        if '.' in cpf[7]:
+            if '-' in cpf[11]:
 
-    print("CPF INVALIDO")
-
+                print(f"O CPF {cpf} é um CPF válido.")
 else:
-    print("CPF valido!")
+    print(f'\nO CPF {cpf} é um CPF inválido.')
