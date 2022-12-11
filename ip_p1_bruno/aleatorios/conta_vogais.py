@@ -1,3 +1,5 @@
+# Escreva um programa em Python para ler uma string de 30 caracteres e exibir a quantidade de vogais.
+
 
 #removem espaços, linhas e símbolos de pontuação
 '''texto = texto.replace(" ","")
@@ -42,7 +44,7 @@ print (f"Vogais: {vogais}")
 print (f"Consoantes: {consoantes}")'''
 
 #nao consigo fazer com função
-def contador(string):
+'''def contador(string):
     
     vogais = consoantes = 0
 
@@ -59,8 +61,32 @@ def contador(string):
 print ("\nConta Letras - Vogais e Consoantes\n")
 texto = input("Digite algo para contar as vogais: ").lower()
                   
-print (f"Vogais: {contador(texto)}")
+print (f"Vogais: {contador(texto)}")'''
 #print (f"Consoantes: {consoantes}")
+
+c = 0
+frase = input("\nDigite um frase: ").lower()
+
+for i in range(len(frase)):
+    
+    if (frase[i] == 'a'):
+        c+=1
+        
+    elif frase[i] =='e':
+        c+= 1
+        
+    elif frase[i] == 'i':
+        c+= 1
+        
+    elif frase[i] == 'o':
+        c+= 1
+        
+    elif frase[i] == 'u':
+        c+= 1
+    
+print(f"'{frase}' tem {c} vogais.")       
+
+
 
 
 
