@@ -4,13 +4,14 @@
 
 lista = []
 
-for i in range(1, 501):
+for i in range(1,501):
     lista.append(i)
     
 for i in range(len(lista)):
-    for j in lista[i]:
-        print(lista[i], end=" ")
-    print()
+    
+    print(lista[i], end="\n")
+    #print(lista[i], end=" ")
+    #print()
  
 
     
