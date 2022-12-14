@@ -1,16 +1,8 @@
 import random
 
-lista_palavras = []
+lista_palavras = ["SORTE", "PYTHON", "PROGRAMAÇÃO", "JAVA", "BRUNO", "MONITOR"]
 
-print('''\n == JOGO DA FORCA ==
-      
-Este programa terá uma lista de palavras como entrada e escolherá uma aleatoriamente!''')
-
-quant = int(input("\nDigite a quantidade de palavras que deseja colocar: "))
-
-for i in range(quant):
-    lista_palavras.append(input("Digite a palavra: ").upper())
-        
+print("\n == JOGO DA FORCA == ")
 
 palavra = random.choice(lista_palavras)
 print("\nA palavra foi sorteada!")
@@ -21,7 +13,7 @@ pcerta = ''
 
 while erros < 6:
     
-    letra = input('\nDigite uma letra: \n').upper()
+    letra = input('\nDigite uma letra: ').upper()
     
     if letra in palavra:
         pcerta += letra

@@ -28,6 +28,6 @@ def num_extenso(n):
         
     return result
 
-print("== Número por Extenso ==")
+print("\n== Número por Extenso ==")
 num = int(input("\nDigite um número(de 1 até 99): "))
 print(f"O número {num} por extenso é: {num_extenso(num)}.")

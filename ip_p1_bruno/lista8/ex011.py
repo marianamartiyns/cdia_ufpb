@@ -1,6 +1,6 @@
 def conta_dig(n):
     
-    c=0
+    c = 0
     while n != 0:
         
         n = n // 10
