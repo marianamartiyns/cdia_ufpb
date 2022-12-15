@@ -1,4 +1,5 @@
-# Fa
+# Faça um programa que solicite o raio de um círculo, calcule e mostre sua área.
+
 # Entrada do dado
 print("\n-- Código para Cálculo da Área de um Círculo a partir do Raio --")
 raio = float(input('Digite o raio do círculo: '))

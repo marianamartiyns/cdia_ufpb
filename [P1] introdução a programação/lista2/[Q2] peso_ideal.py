@@ -1,5 +1,4 @@
 # Entrada de dados
-
 print("\n-- Código de Cálculo para IMC --")
 print("\nF para Feminino\nM para Masculino\n")
 sexo = input("Digite seu sexo: ")
