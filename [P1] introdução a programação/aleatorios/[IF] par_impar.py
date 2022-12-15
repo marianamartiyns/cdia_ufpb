@@ -1,5 +1,6 @@
-'''4. Escreva um programa que leia um número inteiro e imprima se esse número é par ou ímpar.'''
+# Escreva um programa que leia um número inteiro e imprima se esse número é par ou ímpar.
 
+print("\n== Par ou Ímpar? ==")
 n = int(input("Digite um número para verificar se ele é PAR ou ÍMPAR: "))
 
 if n % 2 == 0:

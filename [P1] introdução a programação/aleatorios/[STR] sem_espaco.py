@@ -1,6 +1,5 @@
 # Escreva um programa para construir uma string a partir da eliminação de espaços em branco de uma string inicial
 
-
 print("\n== Frase sem Espaços ==")
 
 frase = input("Digite uma frase: ").split()

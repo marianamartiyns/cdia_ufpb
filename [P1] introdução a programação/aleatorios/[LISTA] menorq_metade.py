@@ -1,4 +1,4 @@
-# Programa que retorna todos os valores da lista menores do que a metade do maior número
+# Programa que retorna todos os valores da lista menores do que a metade do maior número.
 
 maior = menor = 0
 

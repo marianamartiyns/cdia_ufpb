@@ -1,3 +1,4 @@
+# Fa
 # Entrada do dado
 print("\n-- Código para Cálculo da Área de um Círculo a partir do Raio --")
 raio = float(input('Digite o raio do círculo: '))

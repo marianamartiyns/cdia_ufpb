@@ -13,8 +13,8 @@ def convertor(num):
     else:
         return str(num)
 
-print('24h to 12h Converter')
-num = int(input('Answer: '))
+print('== Convertor de 24hrs para 12hrs')
+num = int(input('Digite uma hora(ex: 1445): '))
 
 normal = 0
 

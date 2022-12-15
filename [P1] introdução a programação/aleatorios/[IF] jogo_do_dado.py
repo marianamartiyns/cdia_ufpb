@@ -1,3 +1,5 @@
+# Escreva um programa em Python que simula o lançamento de um dado N vezes e imprime o percentual de surgimento de cada face do dado. O valor N é introduzido pelo usuário,sendo que zero encerra o programa. Seu Programa deverá utilizar uma lista para armazenar os números de aparecimento de cada face.
+
 import random
 
 faces = []

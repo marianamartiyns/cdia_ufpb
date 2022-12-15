@@ -1,3 +1,4 @@
+# Faça um programa que leia uma string e diga se esta é ou não um palíndromo.
 
 expressao = input('Escreva uma expressão: ').upper().replace(' ', '')
 
