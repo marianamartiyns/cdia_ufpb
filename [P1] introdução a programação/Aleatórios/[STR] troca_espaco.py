@@ -1,4 +1,4 @@
-# Programa que trocava o espaçamento por um caracter.
+# Programa que troca o espaçamento por um caracter.
 
 print("\n== TROCA ESPAÇO ==")
 
