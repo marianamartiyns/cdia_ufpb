@@ -37,6 +37,7 @@ print(f"\nAs alturas inseridas foram: {h}")
 print(f"Os sexos inseridos foram: {s}")
      
 print(f"\nEntre os dados obtidos, temos {tot_m} Homens e {tot_f} Mulheres.")
+#print(f"Ao todo foram {(tot_m * 100) / 10}% de Homens e {(tot_f*100)/10}% de Mulheres.") - porcentagem 
     
 print(f"\nA pessoa mais alta é do sexo {x} com {maior:.2f} metros de altura. Já a mais baixa é do sexo {y} com {menor} de altura.")
 

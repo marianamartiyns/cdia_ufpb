@@ -1,17 +1,17 @@
-print("\n== TROCA ESPAÇO ==")
+def troca(quero_trocar, trocar_por, frase):
+    
+    nova = []
+    for c in frase:
+        if c == quero_trocar:
+            nova.append(trocar_por)
+        else:
+            nova.append(c)
 
-frase = input("Digite uma frase: ").split()
-caractere = input("Digite o caractere que irá substituir o espaço: ")
+    return ''.join(nova)
 
-for i in range(len(frase)):
-    nova_frase = frase[i].split()
-    
-    for i in range(len(nova_frase)):
-        
-        if nova_frase[i] != frase[0]:
-            sem_a = nova_frase
-      
-for i in range(len(sem_a)):
-    
-    print(sem_a[i], end = caractere)
-    
+print("\n== TROCA INICIAL ==")
+
+frase = frase = input("Digite uma frase: ")
+caractere = input("Digite um caractere para substituir: ")
+
+print(troca(frase[0], caractere, frase))
