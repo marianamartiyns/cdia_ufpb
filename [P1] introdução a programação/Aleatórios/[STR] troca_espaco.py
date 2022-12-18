@@ -8,7 +8,6 @@ caractere = input("Digite o caractere que irá substituir o espaço: ")
 for i in range(len(frase)):
        
     if frase[i] != " ":
-        
         sem_esp = frase
       
 for i in range(len(sem_esp)):

@@ -20,5 +20,3 @@ for i in range(0,3):
     print(matriz[i])
     
 print(f"\nOs números pares digitados na matriz foram: {pares}")
-    
-

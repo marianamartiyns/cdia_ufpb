@@ -16,10 +16,10 @@ print("A matriz está definida!")
 num = int(input("Digite um número para verificar se ele está na matriz: "))
 
 for i in range(3):
-    for j in range(3): 
-        
-        if (num == matriz[i][j]):
-            print("Esse número pertence a matriz!")
-                    
-        else:
-            print("Esse número não pertence a matriz!")
+	for j in range(3):
+
+            if (num in matriz):
+                print("Esse número pertence a matriz!")
+                            
+            else:
+                print("Esse número não pertence a matriz!")
