@@ -2,21 +2,20 @@
 #include <stdlib.h>
 #include <locale.h>
 
-int main () {
+int main() {
 
     setlocale(LC_ALL, " ");
 
-    int minutos, h, m, s, resto;
+    int minutos, horas, segundos;
 
-    printf("\nDigite a quantidade de minutos: ");
+    printf("Digite um intervalo de tempo em minutos: ");
     scanf("%d", &minutos);
 
-    h = minutos / 60;
-    resto = minutos % 60;
-    m = resto / 60;
-    s = resto % 60;
+    horas = minutos / 60;
+    minutos = minutos % 60;
+    segundos = minutos * 60;
 
-    printf("\n%d minutos equivale a %d horas, %d minutos e %d segundos.\n", minutos, h, m, s);
+    printf("\n%d minutos equivalem a %d horas, %d minutos e %d segundos.\n", minutos + horas * 60, horas, minutos, segundos);
 
     return 0;
 }
