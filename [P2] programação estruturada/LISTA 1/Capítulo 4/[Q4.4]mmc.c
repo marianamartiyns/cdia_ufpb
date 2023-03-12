@@ -6,17 +6,17 @@
 
 main() {
 
-    int x, y, i, Mmc;
+    int x, y, i, mmc;
 
     printf("Digite os dois numeros \n");
     scanf("%d %d", &x, &y);
 
-    Mmc = x;
+    mmc = x;
 
-    while (Mmc % y != 0)
+    while (mmc % y != 0)
 
-        Mmc = Mmc + x;
-        printf("mmc(%d, %d) = %d \n", x, y, Mmc);
+        mmc = mmc + x;
+        printf("mmc(%d, %d) = %d \n", x, y, mmc);
 
     return 0;
 }
