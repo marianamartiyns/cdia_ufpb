@@ -1,5 +1,4 @@
 /*Programa que determina o intervalo de tempo decorrido entre dois instantes*/
-// RESCREVER PARA RECEBR HORA MINUTOS E SEGUNDOS
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -22,7 +21,7 @@ int main(){
     seg = seg1 - seg2;
 
     if ( (h < 0) || (h == 0) && (min < 0) || (min == 0) && (seg < 0) )
-            printf("\nDados invalídos! O segundo instante é anterior ao primeiro.");
+            printf("\nDados invalídos! O segundo instante é anterior ao primeiro.\n");
 
     else{
 
