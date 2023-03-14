@@ -1,6 +1,10 @@
 #include <stdio.h>
+#include <stdlib.h>
+#include <locale.h>
 
-int main() {
+int main(){
+
+    setlocale(LC_ALL, "Portuguese");
 
 
 

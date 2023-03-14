@@ -1,7 +1,10 @@
-#include <stdio.h>;
-#include <stdlib.h>;
+#include <stdio.h>
+#include <stdlib.h>
+#include <locale.h>
 
-int main() {
+int main(){
+
+    setlocale(LC_ALL, "Portuguese");
 
     float valor1, valor2, valor3, maior;
 
@@ -31,6 +34,7 @@ int main() {
             maior = valor3;
     }
 
-    printf("Dentre %1.f, %1.f, %1.f, o maior valor é %.1f", valor1, valor2, valor3, maior);
+    printf("\nDentre %1.f , %1.f , %1.f , o maior valor é %.1f.\n", valor1, valor2, valor3, maior);
+
     return 0;
 }

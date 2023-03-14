@@ -1,15 +1,25 @@
-#import <stdio.h>
-#import <stdlib.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <locale.h>
+#include <math.h>
 
-int main() {
+int main(){
 
-    // Números quadrados perfeitos nunca terminam com os algarismos 2, 3, 7 e 8.
-    int num;
+    setlocale(LC_ALL, "Portuguese");
 
-    printf("Digite um valor para saber se ele é um quadrado perfeito: ");
-    scanf("%d", &num);
+    float num, raiz_inteira, raiz_real, partefrac;
 
+    printf("\nDigite um valor para saber se ele é um quadrado perfeito: ");
+    scanf("%f", &num);
 
+    raiz_real = sqrt(num);
+    raiz_inteira = raiz_real;
+    partefrac = raiz_real - raiz_inteira;
+
+    if (partefrac == 0)
+        printf("\n %.0f é quadrado perfeito de raiz %.2f\n", num, raiz_inteira);
+    else
+        printf("\n %.0f não é quadrado perfeito\n ", num);
 
     return 0;
 }

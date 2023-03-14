@@ -4,7 +4,7 @@
 
 int main(){
 
-    setlocale(LC_ALL, "");
+    setlocale(LC_ALL, "Portuguese");
 
     int lado1, lado2, lado3;
 
@@ -16,8 +16,6 @@ int main(){
 
     printf("Digite o 3º lado do triângulo: ");
     scanf("%d", &lado3);
-
-    // Descobrindo se os 3 comprimentos formam um triângulo
 
     if(lado1 + lado2 > lado3 && lado1 + lado3 > lado2 && lado2 + lado3 > lado1){
 

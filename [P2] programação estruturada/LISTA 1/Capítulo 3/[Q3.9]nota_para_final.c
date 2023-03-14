@@ -20,8 +20,13 @@ Programa para verificar aprovação de um aluno*/
 // forneca a nota minina para ele ir pra final
 
 #include <stdio.h>
+#include <stdlib.h>
+#include <locale.h>
 
-main(){
+int main(){
+
+    setlocale(LC_ALL, "Portuguese");
+
     float Bim1, Bim2, MedBim, PrFinal, MedFinal;
 
     printf("Digite as duas notas bimestrais");
