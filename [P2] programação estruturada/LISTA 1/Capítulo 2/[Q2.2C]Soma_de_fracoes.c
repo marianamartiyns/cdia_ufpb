@@ -1,37 +1,44 @@
-#import <stdio.h>
-#import <locale.h>
+#include <stdio.h>
+#include <locale.h>
 
 int main(){
 
-    setlocale(LC_ALL, " ");
+    setlocale(LC_ALL, "Portuguese");
 
-    int num1, den1, num2, den2, result, result_mmc
+    int num1, den1, num2, den2, result, mmc, result_mmc, i, eq_num1, eq_num2, res_num;
 
-    printf("Lembre-se que o denominador (segundo número) precisa ser diferente de 0!");
+    printf("\nLembre-se que o denominador (segundo número) precisa ser diferente de 0!\n");
 
     do {
-    printf("Digite a primeira fração (ex: 2/3 = 2 3): ");
-    scanf("%d %d" &num1, &den1)}; while (den1 == 0);
+    printf("\nDigite a primeira fração (ex: 2/3 = 2 3): ");
+    scanf("%d %d",&num1, &den1);} while (den1 == 0);
 
     do{
-    printf("Digite a segunda fração (ex: 8/9 = 8 9): ");
-    scanf("%d %d" &num2, &den2)}; while (den2 == 0);
+    printf("\nDigite a segunda fração (ex: 8/9 = 8 9): ");
+    scanf("%d %d",&num2, &den2);} while (den2 == 0);
 
     if (den1 == den2){
 
-        result = num1+num2
-        printf("A soma das frações inseridas resultou: %d / %d.", result, den1);
+        result = num1 + num2;
+        printf("\nA soma das frações inseridas resultou: %d / %d.\n", result, den1);
+
     }
 
     else {
 
-    mmc = x;
-    while (mmc % y != 0)
-        mmc = mmc + x;
+    for(i=1; i<=den1 && i<=den2; i++){
+      if(den1%i==0 && den2%i==0) {
+         mmc = i;
+      }
+   }
 
-    result_mmc = ((mmc / den1) * num1) +((mmc / den2) * num2))
+    result_mmc = (den1*den2)/mmc;
 
-    printf("A soma das frações inseridas resultou: %d / %d.", result_mmc, mmc); }
+    eq_num1 = num1 * (result_mmc / den1);
+    eq_num2 = num2 * (result_mmc / den2);
+    res_num = eq_num1 + eq_num2;
+
+    printf("\nA soma das frações inseridas resultou: %d / %d.\n", res_num, result_mmc); }
 
     return 0;
 }

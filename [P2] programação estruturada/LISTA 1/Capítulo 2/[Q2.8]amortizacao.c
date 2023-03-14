@@ -3,50 +3,28 @@
 #include <locale.h>
 #include <math.h>
 
-#include <stdio.h>
-#include <math.h>
-/*
-int main() {
-    float valor_financiado, taxa_juros, prestacao;
-    int num_prestacoes;
-
-    printf("Digite o valor do financiamento: ");
-    scanf("%f", &valor_financiado);
-
-    printf("Digite a taxa de juros (em %%): ");
-    scanf("%f", &taxa_juros);
-
-    printf("Digite o número de prestações: ");
-    scanf("%d", &num_prestacoes);
-
-    taxa_juros = taxa_juros / 100.0; // Converte a taxa de juros para decimal
-
-    prestacao = valor_financiado * (taxa_juros / (1 - pow(1 + taxa_juros, -num_prestacoes)));
-
-    printf("O valor da prestação é: R$ %.2f\n", prestacao);
-
-    return 0;
-}
-*/
-
 int main () {
 
-    setlocale(LC_ALL, " ");
+    setlocale(LC_ALL, "Portuguese");
 
-    int valor_finan, quant_prestacao, taxa_juros, juros, valor_prestacao;
+    float valor_finan, taxa_juros, juros, valor_prestacao, pot, coef, prestacao;
+    int quant_prestacao;
 
     printf("\nDigite o valor do Financiamento: ");
-    scanf("%d", &valor_finan);
+    scanf("%f", &valor_finan);
+
     printf("\nDigite a quantidade de prestações: ");
     scanf("%d", &quant_prestacao);
+
     printf("\nDigite o percentual do juros(%): ");
-    scanf("%d", &taxa_juros);
+    scanf("%f", &taxa_juros);
 
     juros = taxa_juros / 100;
-    printf(juros);
-    valor_prestacao = valor_finan * (juros / ( 1 - pow(1 + juros,-quant_prestacao)));
+    pot = pow(1 + juros, quant_prestacao);
+    coef = (pot - 1)/(juros * pot);
+    prestacao = valor_finan / coef;
 
-    printf("\nO financiamento no valor de R$ %d, será quitado após %d parcelas no valor de R$ %d\nJa aplicada uma taxa de juros de %d.", valor_finan, quant_prestacao, valor_prestacao, taxa_juros);
+    printf("\nCom a taxa de juros em %.0f%, o financiamento no valor de R$ %.2f, será quitado após %d parcelas no valor de R$ %.2f.\n", taxa_juros, valor_finan, quant_prestacao, prestacao);
 
     return 0;
 }
