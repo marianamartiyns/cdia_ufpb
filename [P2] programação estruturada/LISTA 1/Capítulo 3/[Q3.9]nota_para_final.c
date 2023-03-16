@@ -27,13 +27,21 @@ int main(){
 
     setlocale(LC_ALL, "Portuguese");
 
-    float Bim1, Bim2, MedBim, PrFinal, MedFinal;
+    float bim1, bim2, MedBim, PrFinal, MedFinal;
 
     printf("Digite as duas notas bimestrais");
     scanf("%f %f ", &Bim1, &Bim2);
 
-    MedBim = (Bim1 + Bim2)/4;
+    MedBim = (Bim1 + Bim2)/2;
     MedFinal = MedBim;
+
+    if (MedBim > 7)
+        printf("O aluno está aprovado! Com média %.2f", MedBim);
+
+    else{
+
+
+    }
 
     if ((MedBim < 7) && (MedBim >= 5)){
 

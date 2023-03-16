@@ -1,5 +1,3 @@
-// confere raizes reais ou complexas dados os coeficiente
-
 #include <stdio.h>
 #include <stdlib.h>
 #include <locale.h>
@@ -22,9 +20,9 @@ int main(){
 
     if (a != 0){
         real = -b /(2 * a);
-        delta = b * b ­ 4 * a * c;
+        delta = b * b - 4 * a * c;
 
-    if (Delta >= 0) {
+    if (delta >= 0) {
         imag = sqrt(delta)/(2 * a);
         x1 = real + imag;
         x2 = real - imag;
@@ -33,12 +31,12 @@ int main(){
 
     else {
         imag = sqrt(-delta)/(2*a);
-        printf("As raizes da equacao de coeficientes %.2f , %.2f e %.2f sao %.2f + %.2fi e %.2f - %.2fi ", a, b, c, Real, Imag, Real, Imag);
+        printf("As raizes da equacão de coeficientes %.2f , %.2f e %.2f sao %.2f + %.2fi e %.2f - %.2fi ", a, b, c, Real, Imag, Real, Imag);
         }
 
     }
     else
-        printf("A equacao nao e do segundo grau");
+        printf("A equacao não e do segundo grau");
     }
 
     return 0;
