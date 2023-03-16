@@ -1,22 +1,25 @@
-/*Programa para determinar o mínimo múltiplo comum de dois números positivos*/
-
-// refazer tomando o maior dos número dados como base do raciocio
-
 #include <stdio.h>
+#include <stdlib.h>
+#include <locale.h>
 
 main() {
 
-    int x, y, i, mmc;
+    setlocale(LC_ALL, "Portuguese");
 
-    printf("Digite os dois numeros \n");
-    scanf("%d %d", &x, &y);
+    int n1, n2, i, mmc;
 
-    mmc = x;
+    printf("\nDigite o 1º valor: ");
+    scanf("%d", &n1);
 
-    while (mmc % y != 0)
+    printf("\nDigite o 2º valor: ");
+    scanf("%d", &n2);
 
-        mmc = mmc + x;
-        printf("mmc(%d, %d) = %d \n", x, y, mmc);
+    mmc = n1;
+
+    while (mmc % n2 != 0)
+
+        mmc = mmc + n1;
+        printf("\n  mmc(%d, %d) = %d.\n", n1, n2, mmc);
 
     return 0;
 }
