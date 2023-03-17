@@ -21,3 +21,25 @@ main() {
     }
 }
 
+/*
+
+Após a execução do codígo acima essa é a configuração de tela:
+
+
+5
+15
+45
+4
+12
+36
+3
+9
+27
+2
+6
+18
+1
+3
+9
+
+*/
