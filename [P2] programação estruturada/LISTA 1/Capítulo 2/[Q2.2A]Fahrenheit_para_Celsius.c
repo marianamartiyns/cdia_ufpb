@@ -15,5 +15,4 @@ int main() {
 
     printf("\n%1.f Fahrenheit = %1.f Celsius.\n", fah, celsius);
 
-return 0;
 }

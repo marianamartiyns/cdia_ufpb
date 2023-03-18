@@ -20,5 +20,4 @@ main() {
 
     printf("\nA soma dos %d primeiros números da sequência dada é %.3f.\n", n, soma);
 
-    return 0;
 }

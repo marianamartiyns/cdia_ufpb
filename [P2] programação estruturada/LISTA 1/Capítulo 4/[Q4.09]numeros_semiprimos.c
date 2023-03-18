@@ -44,6 +44,4 @@ main() {
                 else
                     printf("\n  %d é produto dos primos: %d x %d = %d\n", num, x, y, num);}
     }
-
-    return 0;
 }

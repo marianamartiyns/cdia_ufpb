@@ -4,7 +4,6 @@
 int main() {
 
     setlocale(LC_ALL, "Portuguese");
-
     int valor, resto;
 
     printf("\nDigite um número de 3 algarismos: ");
@@ -20,7 +19,6 @@ int main() {
         while (valor != 0);
         printf("\n");
     }
-
     else
     if (valor <1){
         valor = valor * -1;
@@ -33,7 +31,4 @@ int main() {
         }
         while (valor != 0);
         printf("\n");
-    }
-
-    return 0;
-}
+    } }

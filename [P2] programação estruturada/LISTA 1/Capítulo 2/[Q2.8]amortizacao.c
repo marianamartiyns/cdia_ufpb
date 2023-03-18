@@ -24,7 +24,8 @@ int main () {
     coef = (pot - 1)/(juros * pot);
     prestacao = valor_finan / coef;
 
-    printf("\nCom a taxa de juros em %.0f%, o financiamento no valor de R$ %.2f, será quitado após %d parcelas no valor de R$ %.2f.\n", taxa_juros, valor_finan, quant_prestacao, prestacao);
+    printf("\nCom a taxa de juros em %.0f%", taxa_juros);
+    printf("\nO financiamento no valor de R$ %.2f, será quitado após %d parcelas no valor de R$ %.2f.\n",valor_finan, quant_prestacao, prestacao);
 
     return 0;
 }

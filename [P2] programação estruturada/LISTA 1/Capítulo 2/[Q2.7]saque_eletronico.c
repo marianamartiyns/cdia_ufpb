@@ -28,7 +28,8 @@ int main () {
     resto = resto % 1;
 
     printf("\nValor do Saque: %d\n", saque);
-    printf("\nNotas de R$50 a receber: %d\nNotas de R$20 a receber: %d\nNotas de R$10 a receber: %d\nNotas de R$5 a receber: %d\nNotas de R$1 a receber: %d\n", nota50, nota20, nota10, nota5, nota1);
+    printf("\nNotas de R$50 a receber: %d\nNotas de R$20 a receber: %d\nNotas de R$10 a receber: %d", nota50, nota20, nota10);
+    printf("\nNotas de R$5 a receber: %d\nNotas de R$1 a receber: %d\n", nota5, nota1);
     return 0;
 }
 

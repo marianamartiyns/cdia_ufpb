@@ -21,7 +21,4 @@ main() {
     }
     printf("\nO menor inteiro n tal que a soma dos n primeiros termos da serie harmônica é maior que %.1f é %d.\n", k, i);
 }
-
-
-
 }
