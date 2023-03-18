@@ -26,18 +26,15 @@ int main(){
         imag = sqrt(delta)/(2 * a);
         x1 = real + imag;
         x2 = real - imag;
-        printf("As raizes da equacao de coeficientes %.2f, %.2f e %.2f sao %.2f e %.2f ", a, b, c, x1, x2);
+        printf("As raizes da equacao de coeficientes %.2f, %.2f e %.2f são %.2f e %.2f ", a, b, c, x1, x2);
     }
 
     else {
         imag = sqrt(-delta)/(2*a);
-        printf("As raizes da equacão de coeficientes %.2f , %.2f e %.2f sao %.2f + %.2fi e %.2f - %.2fi ", a, b, c, Real, Imag, Real, Imag);
+        printf("\nAs raizes da equacão de coeficientes %.2f , %.2f e %.2f são %.2f + %.2fi e %.2f - %.2fi ", a, b, c, real, imag, real, imag);
         }
 
     }
     else
         printf("A equacao não e do segundo grau");
     }
-
-    return 0;
-}

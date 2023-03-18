@@ -8,6 +8,8 @@ main() {
 
     int i, a, q, termo;
 
+
+    printf("\nSaída:\n\n");
     for (i = 5; i > 0; i = i - 1){
 
         a = i;

@@ -14,7 +14,7 @@ main() {
     for (i = 1; i <= n; i++)
         soma += i*i;
 
-    printf("\nA soma dos quadrados dos %d primeiros números naturais e %d\n", n, soma);
+    printf("\nA soma dos quadrados dos %d primeiros números naturais é %d.\n", n, soma);
 
     return 0;
     }
