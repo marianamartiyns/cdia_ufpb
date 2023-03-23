@@ -1,0 +1,24 @@
+FOR:
+
+// não precisa dos dois pontos
+    for (i = 0; i <= 10; i++) // (CONDIÇÃO INICIAL, CONDIÇÃO DE PARADA, INCREMENTO/DECREMENTO(i--))
+
+DO-WHILE:
+
+// do while inicia executando alguma ação pra depois fazer o teste, assim mesmo que o usuario digitar um numero valido na primeira vez, ela será executada ao menos 1 vez. EXEMPLO:
+
+int main() {
+
+    int valor;
+
+    do {
+        printf("Digite um valor maior que zero: ");
+        scanf("%d", &valor);
+    }
+    while (valor <= 0);
+
+    // A estrutura começa executando alguma ação, nesse caso pedindo um valor. Todas as Instruções entre o par de chaves serão repetidas enquanto a condição testada for satisfeita, neste caso enquanto valor for menor ou igual a zero.
+    printf("\nValor Lido: %d\n", valor);
+
+SWITCH CASE:
+
