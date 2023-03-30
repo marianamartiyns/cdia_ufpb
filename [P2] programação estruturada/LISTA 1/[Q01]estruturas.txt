@@ -1,5 +1,5 @@
-*/ Defina as seguintes estruturas e mostre exemplos de como são utilizadas em C: Do-While,
-For e Switch-case! */ 
+Defina as seguintes estruturas e mostre exemplos de como são utilizadas em C: Do-While,
+For e Switch-case!
 
 - FOR:
 

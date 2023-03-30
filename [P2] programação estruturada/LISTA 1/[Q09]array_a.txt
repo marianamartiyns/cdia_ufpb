@@ -1,0 +1,21 @@
+Um programa em C contém a seguinte definição de array: int a[8] = {10, 20, 30, 40, 50, 60, 70, 80}
+
+(a) O que representa a ?
+
+	a é um vetor com tamanho 8 (indices de 0 a 7);
+
+(b) O que representa a + 2?
+
+	
+
+(c) Qual é o valor de *a?
+
+	*a = 10
+
+(d) Qual é o valor de *a + 2?
+	
+	*a + 2 = 30
+
+(e) Qual é o valor de *(a + 2)?
+
+	

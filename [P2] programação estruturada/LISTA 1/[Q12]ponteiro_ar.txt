@@ -1,0 +1,5 @@
+Interprete a definição de variável a seguir:
+ 	char *ar[] = {"azul", "vermelho", "branco"};
+
+ar é um ponteiro que aponta para um array de 3 elementos:
+ar[0] = "azul" , ar[1] = "vermelho" , ar[0] = "branco".

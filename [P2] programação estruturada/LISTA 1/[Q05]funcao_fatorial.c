@@ -5,7 +5,6 @@
 Exemplo com uma função que calcula o fatorial de um número inteiro:
  */
 
-
 #include <stdio.h>
 #include <locale.h>
 

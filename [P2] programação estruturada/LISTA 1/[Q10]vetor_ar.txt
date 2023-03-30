@@ -1,0 +1,9 @@
+Dadas as seguintes iniciações:
+	int ar[] = {10, 15, 4, 25, 3, -4};
+	int *p = &ar[2]; // 4
+Quais são os resultados das avaliações das seguintes expressões?
+
+(a) *(p + 1) = -4
+(b) p[-1] = 3
+(c) ar[*p++] = 25
+(d) *(ar + ar[2]) = 

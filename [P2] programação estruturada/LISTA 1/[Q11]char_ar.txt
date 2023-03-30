@@ -1,0 +1,6 @@
+O que será escrito na tela após a execução do trecho de programa a seguir?
+
+	char ar[] = "Boa noite", *ptr = &ar[1];
+	printf("%s", ptr + 3);
+
+// "noite"
