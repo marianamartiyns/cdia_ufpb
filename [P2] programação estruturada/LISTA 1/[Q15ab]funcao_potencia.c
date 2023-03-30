@@ -3,17 +3,30 @@
 Essa função deverá retornar o valor do primeiro parâmetro elevado ao segundo */
 
 #include <stdio.h>
-#include <stdlib.h>
 #include <locale.h>
 
 int pot(double x, int y){
 
-    int result;
+    int i, result = 1;
 
-    for x
+    for (i = 0; i < y; i++){
+        result *= x;
+    }
+    return result;
+}
 
+int main() {
 
+    setlocale(LC_ALL, "Portuguese");
 
+    int num, pot(double x, int y);
+    double exp;
 
+    printf("\nDigite um expoente: ");
+    scanf("%lf", &exp);
 
+    printf("\nDigite um número: ");
+    scanf("%d", &num);
+
+    printf("\n%d^2 = %d.\n", num, pot(num, exp));
 }
