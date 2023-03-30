@@ -1,0 +1,13 @@
+O que são Vetores e Strings em C, Exemplifique as regras sintáticas de declaração e
+manipulação de ambos!
+
+Vetor é um espaço na memória que armazena uma sequência de variaveis do mesmo tipo. Para acessar esses valores usamos o índice que é um inteiro sem sinal, no qual, começa no 0 e vai até N-1 (N é o tamanho do vetor). Para declararmos um vetor definimos o tipo, o nome e seu tamanho, exemplo:
+
+int pares_ate_10 = [5]; ou
+int pares_ate_10 = [0,2,4,6,8];
+
+Já uma string é um VETOR de caracteres e para declara-la também definimos seu tipo (char), o nome e seu tamanho. Exemplo:
+
+char nome[20]; ou
+char nome[20] = “Mariana”
+

@@ -1,0 +1,4 @@
+Fale sobre a regra de escopo de uma função e defina o que é variável global e local.
+
+Regra de Escopo é uma regra que define onde uma váriavel ou função pode ser acessada dentro de um programa. Variáveis locais são declaradas dentro de uma função e só podem ser usadas na mesma, como a main(), por exemplo. Variáveis declaradas fora de uma função, logo, que podem ser acessadas por váriais funções do código, são chamadas de globais.
+Novas funções podem ser declaradas e usadas dentro de outras, essas funções são chamadas de 'funções internas' e só podem ser acessadas dentro da função na qual foi declarada, além disso, elas devem ser declaradas antes de serem usadas.

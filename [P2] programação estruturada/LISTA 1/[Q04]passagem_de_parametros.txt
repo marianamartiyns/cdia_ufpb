@@ -1,0 +1,7 @@
+Explique quais as diferenças entre passagem de parâmetros por referência e por valor.
+
+Quando declaramos uma função temos a entrada de parâmetros (que toda função tem). Existem dois tipos:
+
+- Passagem por REFERÊNCIA: Nessa passagem, a função que vai acessar a variável(ou o retorno de outra função) pode alterar o valor original da variável.
+
+- Na passagem por Valor: A função só tem acesso ao valor da variável inicial, ou seja, qualquer alteração feita com esse valor não será alterada na variável original.

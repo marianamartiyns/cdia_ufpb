@@ -1,11 +1,30 @@
-FOR:
+*/ Defina as seguintes estruturas e mostre exemplos de como são utilizadas em C: Do-While,
+For e Switch-case! */ 
 
-// não precisa dos dois pontos
+- FOR:
+
+A estrutura 'for' tem 3 parâmetros, exemplo: 
+
+#include <stdio.h>
+#include <stdlib.h>
+
+int main(){
+
+    int i;
+
     for (i = 0; i <= 10; i++) // (CONDIÇÃO INICIAL, CONDIÇÃO DE PARADA, INCREMENTO/DECREMENTO(i--))
+        printf("%d ", i);
 
-DO-WHILE:
+    return 0;
+}
 
-// do while inicia executando alguma ação pra depois fazer o teste, assim mesmo que o usuario digitar um numero valido na primeira vez, ela será executada ao menos 1 vez. EXEMPLO:
+Usa-se o 'for' quando já sabemos quantas vezes o bloco precisa ser executado.
+
+
+- DO-WHILE:
+
+A estrutura 'do-while' inicia executando alguma ação pra depois fazer o teste, assim ela será executada ao menos 1 vez. 
+exemplo:
 
 int main() {
 
@@ -17,8 +36,72 @@ int main() {
     }
     while (valor <= 0);
 
-    // A estrutura começa executando alguma ação, nesse caso pedindo um valor. Todas as Instruções entre o par de chaves serão repetidas enquanto a condição testada for satisfeita, neste caso enquanto valor for menor ou igual a zero.
+    // A estrutura começa executando alguma ação, nesse caso pedindo um valor. Todas as instruções entre o par de chaves serão repetidas enquanto a condição testada for satisfeita, neste caso enquanto valor for menor ou igual a zero.
+
     printf("\nValor Lido: %d\n", valor);
 
-SWITCH CASE:
+- SWITCH CASE:
+
+Usamos o 'switch-case' quando há mais do que duas situações para serem analisadas, como em um menu de opções:
+
+exemplo:
+
+#include <stdio.h>
+#include <stdlib.h>
+
+int main() {
+
+    int opcao;
+
+    printf("1 - Cadastrar produto\n2- Vender Produto\n3 - Buscar produto\n4 - Imprimir\n5 - Sair\nDigite sua Opção: ");
+    scanf("%d", &opcao);
+
+    switch(opcao) {
+
+    case 1:
+        printf("\nCadastrando novo produto.\n");
+        break;
+
+    case 2:
+        printf("\nVendendo Produto\n");
+        break;
+
+    case 3:
+        printf("\nBuscando Produto\n");
+        break;
+    
+    case 4:
+        printf("\nImprimindo Relatório\n");
+        break;
+
+    case 5:
+        printf("\nSaindo...\n");
+        break;
+    
+    default:
+        printf("\nOpção Invalída!\n");
+        break;
+    }
+
+    return 0;
+}
+
+Também podemos utilizar caracteres como opções exemplo:
+
+#include <stdio.h>
+#include <stdlib.h>
+
+int main() {
+
+    char opcao;
+
+    printf("a - Cadastrar produto\nb- Vender Produto\nc - Buscar produto\nd - Imprimir\nz - Sair\nDigite sua Opção: ");
+    scanf("%c", &opcao);
+
+    switch(opcao) {
+    case 'a':
+        printf("\nCadastrando novo produto.\n");
+        break;
+
+(...)
 
