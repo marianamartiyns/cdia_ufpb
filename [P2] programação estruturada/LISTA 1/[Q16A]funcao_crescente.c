@@ -21,19 +21,18 @@ int main(){
     setlocale(LC_ALL, "Portuguese");
 
     int tamanho, i;
-    printf("Digite o tamanho do vetor: ");
+    printf("\nDigite o tamanho do vetor: ");
     scanf("%d", &tamanho);
 
     int vetor[tamanho];
-    printf("Digite os elementos do vetor:\n");
+    printf("\nDigite os elementos do vetor: ");
 
     for (i = 0; i < tamanho; i++) {
         scanf("%d", &vetor[i]); }
 
     ordena_vetor(vetor, tamanho);
 
-    printf("O vetor ordenado em ordem crescente é:\n");
+    printf("\nO vetor ordenado em ordem crescente é:\n");
     for (i = 0; i < tamanho; i++) {
         printf("%d ", vetor[i]);}
-
 }
