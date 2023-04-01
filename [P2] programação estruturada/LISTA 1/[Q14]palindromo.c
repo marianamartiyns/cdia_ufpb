@@ -6,7 +6,6 @@
 int main(){
 
     setlocale(LC_ALL, "Portuguese");
-
     char palavra[30], copia[30];
     int i, tam, iguais = 0;
 
@@ -25,13 +24,10 @@ int main(){
 
     for(i = 0; i < tam; i++){
         if(palavra[i] == copia[i])
-            iguais++;
-    }
+            iguais++;}
 
     if(tam == iguais)
         printf("\nEssa palavra é palindroma.\n");
     else
         printf("\nEssa palavra não é palindroma.\n");
-
-    return 0;
 }

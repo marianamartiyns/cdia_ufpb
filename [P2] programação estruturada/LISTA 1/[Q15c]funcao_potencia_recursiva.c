@@ -3,31 +3,28 @@
 #include <stdio.h>
 #include <locale.h>
 
-int pot(double x, int y){
-
-    int i, parcial, result = 1;
-
-    result * x;
-    parcial = result * pot(result, x);
-
-    return parcial;
+double pot(double x, int n) {
+    if (n == 0) {
+        return 1.0;
+    }
+    else if (n < 0) {
+        return 1.0 / pot(x, -n);
+    }
+    else {
+        return x * pot(x, n - 1);
+    }
 }
 
 int main() {
 
-    setlocale(LC_ALL, "Portuguese");
+    double base;
+    int exp;
 
-    int num, pot(double x, int y);
-    double exp;
+    printf("\nDigite a base: ");
+    scanf("%lf", &base);
 
-    printf("\nDigite um expoente: ");
-    scanf("%lf", &exp);
+    printf("\nDigite o expoente: ");
+    scanf("%d", &exp);
 
-    printf("\nDigite um número: ");
-    scanf("%d", &num);
-
-    printf("\n%d^2 = %d.\n", num, pot(num, exp));
+    printf("\n%1.lf elevado a %d = %1.lf\n", base, exp, pot(base, exp));
 }
-
-
-

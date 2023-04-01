@@ -1,3 +1,4 @@
 Defina o que são e para que serve as Funções na linguagem C?
 
-As funções na linguagem C são definidas com o intuito de deixar o codigo mais limpo e legivel. As funções podem ser definidas como um conjunto de operações que executa uma tarefa especifica, basicamente podemos pegar um trecho de um codigo que seria usado mais de uma vez e adaptamos para uma função que retorne o resultado parcial esperado, assim otimizando o trabalho e deixando o codigo melhor e estruturado.
+As funções na linguagem C são definidas com o intuito de deixar o codigo mais limpo e legivel. 
+As funções podem ser definidas como um conjunto de operações que executa uma tarefa especifica, basicamente podemos pegar um trecho de um codigo que seria usado mais de uma vez e adaptamos para uma função que retorne o resultado parcial esperado, assim otimizando o trabalho e deixando o codigo melhor e estruturado.

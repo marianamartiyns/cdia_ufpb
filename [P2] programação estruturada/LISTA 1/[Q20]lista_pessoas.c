@@ -38,42 +38,38 @@ int main(){
 
         printf("Pessoas cadastradas:\n");
         for (int i = 0; i < num_pessoas; i++)
-            printf("- %s\n", pessoas[i].nome);
+            printf("- %s\n", pessoas[i]);
 
         break;
 
     case 3:
 
-        char nome[50];
-          printf("Digite o nome da pessoa que deseja remover: ");
-          scanf("%s", nome);
+        //char nome[50];
+        printf("Digite o nome da pessoa que deseja remover: ");
+        scanf("%s", nome);
 
-          int pos = -1;
-          for (int i = 0; i < num_pessoas; i++) {
-            if (strcmp(pessoas[i].nome, nome) == 0) {
+        int pos = -1;
+        for (int i = 0; i < num_pessoas; i++) {
+            if (strcmp(pessoas[i], nome) == 0) {
               pos = i;
-              break;
+              break;}
             }
-          }
 
-          if (pos == -1) {
+            if (pos == -1) {
             printf("Pessoa nao encontrada.\n");
-            return;
-          }
+            return;}
 
-          for (int i = pos; i < num_pessoas - 1; i++) {
-            pessoas[i] = pessoas[i + 1];
-          }
+        for (int i = pos; i < num_pessoas - 1; i++) {
+            pessoas[i] = pessoas[i + 1];}
 
-          num_pessoas--;
-          printf("Pessoa removida com sucesso!\n");
-        }
+        num_pessoas--;
+        printf("Pessoa removida com sucesso!\n");
 
-            break;
+        break;
 
-        default:
-            printf("Opção Invalída! Tente Novamente.");
-            break;
+    default:
+        printf("Opção Invalída! Tente Novamente.");
+        break;
 
-        }} while (opcao != 0);
+    }} while (opcao != 0);
 }
