@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <locale.h>
 
-void bubblesort(int vetor[], int tamanho) {
+void crescente(int vetor[], int tamanho) {
 
     int i, j, temp;
     for (i = 0; i < tamanho - 1; i++) {
@@ -21,16 +21,16 @@ int main() {
     int vetor[100];
     int tamanho, i;
 
-    printf("Digite o tamanho do vetor: ");
+    printf("\nDigite o tamanho do vetor: ");
     scanf("%d", &tamanho);
 
-    printf("Digite os elementos do vetor:\n");
     for (i = 0; i < tamanho; i++) {
+        printf("znDigite o %dº elemento do vetor: ", i+1);
         scanf("%d", &vetor[i]);}
 
-    bubblesort(vetor, tamanho);
+    crescente(vetor, tamanho);
 
-    printf("Vetor ordenado em ordem crescente:\n");
+    printf("\nVetor ordenado em ordem crescente:\n");
     for (i = 0; i < tamanho; i++) {
         printf("%d ", vetor[i]);
     }
