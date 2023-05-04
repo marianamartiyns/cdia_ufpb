@@ -2,6 +2,7 @@
 #include <string.h>
 
 int main() {
+
     FILE *arquivo, *saida;
     char linha[100], idade[3], *token;
 
