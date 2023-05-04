@@ -1,0 +1,3 @@
+ 3. Qual a diferença entre uma variável fixa (static) e uma variável automática em C?
+
+Variáveis Fixas (contém STATIC) são definidas fora de um bloco, além de serem incializadas apenas uma vez. Variaveis Automaticas podem ocupadar diferentes posicões de memoria, podem ser incializadas varias vezes e podem serem relacionadas a outras variaveis.

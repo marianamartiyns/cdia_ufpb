@@ -1,0 +1,12 @@
+2. O que é escopo de uma variável e como é determinado em C?
+
+O escopo de uma variável (ou função) define onde essa variável possui validade.
+
+(definida abaixo do #include/ "variaveis globais")
+
+- Escopo de programa: tem validade por todo o programa (em todos os blocos)
+- Escopo de arquivo: tem validade por todo o programa (em todos os blocos) porém tem STATIC.
+
+
+- Escopo de bloco/função: tem validade dentro da função que foi definida
+

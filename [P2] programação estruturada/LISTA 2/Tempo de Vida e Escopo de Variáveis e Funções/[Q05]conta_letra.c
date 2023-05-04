@@ -8,8 +8,7 @@ int contar_letras(char letra, char *string) {
     for (i = 0; i < strlen(string); i++) {
         if (string[i] == letra) {
             cont++;
-            total++;
-        }
+        } total++;
     }
 
     printf("A letra '%c' apareceu %d vezes.\n", letra, cont);

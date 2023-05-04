@@ -1,0 +1,19 @@
+1. O que é tempo de vida de uma variável e como é determinado em C?
+
+Tempo de vida ou Duração de uma variável refere-se ao tempo e que o espaço de memória permanece reservado para ela. Existem dois tipos de duração:
+
+A duração AUTOMATICA tem seu espaço de memoria alocado quando seu escopo é executado e pode ocupar diferentes posições em memoria cada vez que seu escopo é executado. (padrão para variáveis locais).
+
+	- Espaço de memoria alocado quando executado
+	- Pode ocupar diferentes posições de memoria
+	- Nunca tem iniciação implícita
+	- Iniciação pode envolver variáveis
+	- Pode ser iniciada várias vezes
+
+Variáveis com duração FIXA é iniciada apenas UMA vez, retém seu valor após a saída de seu escopo e sua alocação dura todo o tempo de execução do programa. Variveis com essa duração são geralemte usadas para registrar o número de vezes que uma função foi executada. É precedida por STATIC ou definida FORA de um bloco.
+
+	- STATIC ou definida fora de um bloco
+	- Alocação dura todo o tempo de execução do programa
+	- Iniciada implicitamente com zero
+	- Iniciação não pode envolver variáveis
+	- Iniciada uma unica vez
