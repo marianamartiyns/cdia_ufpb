@@ -1,0 +1,4 @@
+Mariana, 7.3
+Vitor, 9
+clay, 8
+Bruno, 2
