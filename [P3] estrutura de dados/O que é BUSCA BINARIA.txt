@@ -1,0 +1,18 @@
+O que é BUSCA BINARIA?
+
+A busca binária é um algoritmo de busca eficiente usado para encontrar um elemento específico em uma coleção de dados ordenada, como um array. Ela é baseada no princípio de dividir a coleção em duas metades e comparar o elemento alvo com o elemento do meio. Com base na comparação, a busca continua apenas em uma das metades, reduzindo pela metade o número de elementos a serem verificados a cada etapa.
+
+A busca binária é significativamente mais rápida do que a busca linear, especialmente para conjuntos de dados grandes, porque elimina metade dos elementos a cada passo, em vez de percorrer um por um, como na busca linear.
+
+Aqui estão os passos básicos da busca binária:
+
+1. Compare o elemento alvo com o elemento do meio do conjunto de dados.
+2. Se o elemento alvo for igual ao elemento do meio, a busca é concluída e o índice do elemento é retornado.
+3. Se o elemento alvo for menor que o elemento do meio, a busca continua na metade esquerda do conjunto de dados.
+4. Se o elemento alvo for maior que o elemento do meio, a busca continua na metade direita do conjunto de dados.
+5. Repita os passos 1 a 4 até que o elemento alvo seja encontrado ou até que a metade do conjunto de dados seja reduzida a zero.
+
+É importante notar que a busca binária só pode ser aplicada a conjuntos de dados ordenados, pois depende da propriedade de dividir o conjunto em metades ordenadas.
+
+A busca binária é uma técnica fundamental na ciência da computação e é amplamente utilizada em algoritmos de busca e otimização. Ela tem uma complexidade de tempo de O(log n), o que a torna muito eficiente para conjuntos de dados grandes.
+

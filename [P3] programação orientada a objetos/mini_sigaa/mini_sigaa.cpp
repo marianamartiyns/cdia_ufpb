@@ -29,16 +29,19 @@ public:
 };
 
 class professor {
+
         char nome[TAM_NOME];
         int cod_departamento;
         int ano_titulacao;
-public:
+
+public: // as variaveis podem ser acessadas fora da classe.
+
 	professor(char* n, int c, int a) {
 		strcpy(nome, n);
 		cod_departamento = c;
 		ano_titulacao = a;
 	}
-	void print_info() {
+	void print_info() { // metodo: uma ação/função que será executada
 		printf("Professor\n");
                 printf("Nome: %s\n", nome);
                 printf("Cod. departamento: %d\n", cod_departamento);
@@ -81,7 +84,7 @@ public:
 };
 
 int main(void) {
-	
+
 	char nome_a1[TAM_NOME] = "Aluno 1";
 	char nome_a2[TAM_NOME] = "Aluno 2";
 	aluno a1(nome_a1, 111111, 9.5);

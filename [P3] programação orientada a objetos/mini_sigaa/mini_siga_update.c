@@ -4,6 +4,7 @@
 #define TAM_NOME 40
 #define ARG_COUNT 3
 
+
 typedef struct {
 	char nome[TAM_NOME];
 	int matricula;
@@ -99,7 +100,7 @@ int main(int argc, char** argv) {
 	t_turma turma1;
 
 	exibe_media_turma(&turma1);
-	
+
 	if (argc != ARG_COUNT) {
 		printf("Use: %s <QUANTIDADE_TURMAS> <NUMERO_DE_ALUNOS>\n", argv[0]);
 		exit(0);
@@ -118,7 +119,7 @@ int main(int argc, char** argv) {
 		free(turmas[i].alunos);
 		free(turmas[i].prof);
 	}
-	
+
 
 	return 0;
 }
