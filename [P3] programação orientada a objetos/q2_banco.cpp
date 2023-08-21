@@ -244,6 +244,34 @@ public:
     }
 };
 
+int main(void) {
+    
+    cliente *c1 = new cliente("Joao", "123456789-00", "Rua 1");
+    cliente *c2 = new cliente("Maria", "987654321-00", "Rua 2");
+
+    conta *conta1 = new conta(1, c1, 1000.0);
+    conta *conta2 = new conta(2, c2, 2000.0);
+
+    banco *b = new banco(1);
+
+    b->add_conta(*conta1);
+    b->add_conta(*conta2);
+
+    b->print_info();
+
+    char ch;
+    
+    cout << "Digite uma tecla para continuar" << endl;
+
+    cin >> ch;
+
+    b->transfere(b->get_conta(1), b->get_conta(2), 100);
+
+    b->print_info();
+
+    return 0;
+}
+
 
 
 
