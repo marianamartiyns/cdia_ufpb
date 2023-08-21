@@ -180,6 +180,70 @@ class conta{
         };
 };
 
+class banco {
+
+    std::vector<conta> contas; // Um vetor de objetos da classe "conta"
+
+public:
+
+    int codigo;
+
+    // construtor
+    banco(int c) { codigo = c; }
+
+    //destrutor que limpa o vetor contas
+    ~banco() {
+        contas.clear();
+    }
+
+    // Método para adicionar uma conta ao vetor de contas.
+    void add_conta(conta c) {
+        contas.push_back(c); //adiciona no final
+    }
+
+    // Método para remover uma conta do vetor com base no número da conta.
+    void remove_conta(int n) {
+        for (int i = 0; i < contas.size(); i++) {
+            if (contas[i].get_numero() == n) {
+                contas.erase(contas.begin() + i);
+                break;
+            }
+        }
+    }
+
+    //get
+    int get_codigo() {
+        return codigo;
+    }
+
+    // Método para obter um ponteiro para uma conta com base no número da conta.
+    conta* get_conta(int n) {
+        for (int i = 0; i < contas.size(); i++) {
+            if (contas[i].get_numero() == n) {
+                return &contas[i];
+            }
+        }
+        return NULL;
+    }
+
+    // Método para realizar uma transferência entre duas contas.
+    void transfere(conta *c1, conta *c2, float v) {
+        operacao o1('D', v); //deposito
+        operacao o2('C', v); //saque
+        c1->add_operacao(o1);
+        c2->add_operacao(o2);
+    }
+
+    // Método para imprimir informações sobre o banco e suas contas.
+    void print_info() {
+        cout << "Banco: " << codigo << endl;
+        cout << "Contas: " << endl;
+        for (int i = 0; i < contas.size(); i++) {
+            contas[i].print_info(); // Chama o método print_info() da classe "conta" para imprimir informações de cada conta.
+        }
+    }
+};
+
 
 
 
