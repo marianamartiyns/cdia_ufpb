@@ -73,7 +73,7 @@ int insere_lista_final(Lista* li, struct aluno al){
     li -> qtd++;
 
     return 1;
-}
+};
 
 // inserir elemento no inicio da lista
 int insere_lista_inicio(Lista* li, struct aluno al){
@@ -90,7 +90,7 @@ int insere_lista_inicio(Lista* li, struct aluno al){
     li -> qtd++;
 
     return 1;
-}
+};
 
 // inserir elemento de forma ordenada 9pode ser no fim, no inicio ou no meio)
 int insere_lista_ordenada(Lista* li, struct aluno al){
@@ -111,7 +111,7 @@ int insere_lista_ordenada(Lista* li, struct aluno al){
     li -> qtd++;
 
     return 1;
-}
+};
 
 /*REMOÇÃO NA LISTA ESTATICA (NO INCIO, NO MEIO OU NO FIM)
     - - não se pode remover em uma lista vazia */ 
@@ -127,7 +127,7 @@ int remove_lista_final(Lista* li){
     li -> qtd--;
 
     return 1;
-}
+};
 
 // remover elemento no inicio da lista
 int remove_lista_inicio(Lista* li){
@@ -143,11 +143,60 @@ int remove_lista_inicio(Lista* li){
     li -> qtd--;
 
     return 1;
-}
+};
 
 // remover qualquer elemento da lista
-int remove_lista(Lista* li, in){
+int remove_lista(Lista* li, int mat){
 
+    if (li == NULL)
+        return 0;
+    if (li -> qtd == 0)
+        return 0;
+
+    int k,i = 0;
+    while( i < li -> qtd && li -> dados[i].matricula != mat)
+        i++;
+
+    if (i == li -> qtd)
+        return 0;
+
+    for (int k=i; k < li -> qtd-1; k++)
+        li -> dados[k] = li -> dados[k+1];
+
+    li -> qtd--;
+
+    return 1;
+};
+
+// Consulta por posição
+int consulta_lista_pos(Lista* li, int pos, struct aluno *al){
+
+    if (li == NULL || pos <= 0 || pos > li-> qtd)
+        return 0;
+
+    *al = li -> dados[pos-1];
+
+    return 1;
+};
+
+// consulta pela conteudo, nesse exemplo, pela matricula
+int consulta_lista_mat(Lista* li, int mat, struct aluno *al){
+
+    if (li == NULL)
+        return 0;
+
+    int k, i = 0;
+
+    while(i <li -> qtd && li -> dados[i].matricula != mat)
+        i++;
+
+    if (i == li -> qtd)
+        return 0;
+
+    *al = li -> dados[i];
+
+    return 1;
+};
 
 
 void main(){
@@ -167,5 +216,9 @@ void main(){
 
     int z = remove_lista_final(li);
     int z = remove_lista_inicio(li);
+    int z = remove_lista(li, matricula_aluno);
+
+    int b = consulta_lista_pos(li, posicao, &dados_alunos);
+    int b = consulta_lista_mat(li, posicao, &dados_aluno);
     
 };
