@@ -1,0 +1,48 @@
+1) Sistema de Streaming
+
+**Objetivo do Exercício:** Criar uma hierarquia de classes que simule um sistema de streaming de música.
+
+1. Crie uma classe abstrata chamada `Musica`, que representará uma música genérica no sistema. Esta classe deve ter os seguintes membros:
+   - Um membro de dados privado `titulo` para armazenar o título da música.
+   - Um membro de dados privado `artista` para armazenar o nome do artista.
+   - Um construtor que aceite dois parâmetros para inicializar o título e o artista.
+   - Uma função membro virtual pura chamada `tocar()` que será usada para "tocar" a música.
+
+2. Crie uma classe chamada `MusicaLocal` que herde publicamente da classe `Musica`. Esta classe deve ter os seguintes membros:
+   - Um membro de dados privado `caminhoArquivo` para armazenar o caminho do arquivo da música.
+   - Um construtor que aceite três parâmetros para inicializar o título, o artista e o caminho do arquivo.
+   - Uma implementação da função `tocar()` que "toca" a música local, exibindo uma mensagem que inclui o título, o artista e o caminho do arquivo.
+
+3. Crie outra classe chamada `MusicaStreaming` que também herde publicamente da classe `Musica`. Esta classe deve ter os seguintes membros:
+   - Um membro de dados privado `url` para armazenar a URL da música.
+   - Um construtor que aceite três parâmetros para inicializar o título, o artista e a URL.
+   - Uma implementação da função `tocar()` que "toca" a música de streaming, exibindo uma mensagem que inclui o título, o artista e a URL.
+
+4. No `main()`, crie objetos das classes `MusicaLocal` e `MusicaStreaming`, armazene-os em um vetor de ponteiros para `Musica`, e então percorra o vetor, chamando a função `tocar()` para cada música. Isso demonstrará a ligação dinâmica em ação.
+
+--------------------
+
+1) Sistema de Streaming com suporte a Podcast
+
+**Objetivo do Exercício:** Estender o sistema de streaming de música para incluir podcasts, que têm características adicionais, como um apresentador e uma lista de episódios. Além disso, os podcasts podem ser reproduzidos em um modo especial que inclui a introdução e o encerramento do apresentador.
+
+1. Crie uma classe `Podcast` que herde publicamente da classe `Musica`. Esta classe deve ter os seguintes membros:
+   - Um membro de dados privado `apresentador` para armazenar o nome do apresentador do podcast.
+   - Um membro de dados privado `episodios` para armazenar a lista de episódios do podcast.
+   - Um construtor que aceite três parâmetros para inicializar o título, o artista (neste caso, pode ser a rede ou o produtor do podcast) e o apresentador.
+   - Uma função `adicionarEpisodio()` para adicionar episódios à lista.
+   - Uma implementação da função `tocar()` que "toca" o podcast, exibindo uma mensagem que inclui o título, a rede, o apresentador e a lista de episódios.
+
+2. Modifique a classe `Musica` para incluir um método protegido `tocarIntro()`. Este método deve exibir uma mensagem genérica indicando que a música está prestes a ser tocada.
+
+3. Na classe `Podcast`, sobrescreva o método `tocarIntro()` para incluir a introdução do apresentador.
+
+4. No método `tocar()` da classe `Podcast`, chame primeiro o método `tocarIntro()`, demonstrando assim o uso de métodos protegidos.
+
+5. Crie uma classe `PodcastPremium` que herde privadamente da classe `Podcast`. Esta classe representa um podcast premium que requer uma assinatura para ser tocado.
+   - Adicione um membro de dados privado `preco` para representar o preço da assinatura.
+   - Forneça métodos públicos para acessar as funcionalidades do podcast (como tocar e adicionar episódios), demonstrando assim a herança privada.
+
+6. No `main()`, crie objetos das classes `MusicaLocal`, `MusicaStreaming` e `Podcast`, armazene-os em um vetor de ponteiros para `Musica`, e então percorra o vetor, chamando a função `tocar()` para cada música. Isso demonstrará a ligação dinâmica em ação.
+
+

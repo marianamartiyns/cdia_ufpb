@@ -1,0 +1,5 @@
+Exercício 1 
+Crie uma classe Animal que tenha as propriedades nome e idade, e um método que exibe informações básicas sobre o animal. Em seguida, crie duas subclasses: Papagaio e Gato. Ambas as subclasses devem herdar da classe Animal e ter uma propriedade adicional: envergadura e se é falante para Papagaio e pelagem e tamanho das garras para Gato. Em seguida, crie um programa que cria objetos de ambas as subclasses e chame o método para exibir informações básicas sobre os animais.
+
+Exercício 2
+Acrescente ao programa anterior dois animais: Arara e Cachorro. Arara deve ter, além da envergadura, tamanho do bico; já o cachorro deve ter pelagem e se é adestrado. Acrescente mais duas classes que facilitem o reuso das características similares entre os animais existentes. 
