@@ -1,21 +1,17 @@
-/* 1) Sistema de Streaming
+/* 1) Sistema de Streaming com Suporte a Podcast
 
-**Objetivo do Exercício:** Criar uma hierarquia de classes que simule um sistema de streaming de música. */
+**Objetivo do Exercício:** Estender o sistema de streaming de música para incluir podcasts, que têm características adicionais, como um apresentador e uma lista de episódios. Além disso, os podcasts podem ser reproduzidos em um modo especial que inclui a introdução e o encerramento do apresentador.*/
 
 #include <iostream>
 #include <string>
+#include <vector>
 
 using std::string;
 using std::cin;
 using std::cout;
 using std::endl;
 
-/* 1. Crie uma classe abstrata (VIRTUAL) chamada `Musica`, que representará uma música genérica no sistema. Esta classe deve ter os seguintes membros:
-
-   - Um membro de dados privado `titulo` para armazenar o título da música.
-   - Um membro de dados privado `artista` para armazenar o nome do artista.
-   - Um construtor que aceite dois parâmetros para inicializar o título e o artista.
-   - Uma função membro virtual pura chamada `tocar()` que será usada para "tocar" a música.  */
+/* 2. Modifique a classe `Musica` para incluir um método protegido `tocarIntro()`. Este método deve exibir uma mensagem genérica indicando que a música está prestes a ser tocada. */
 
 class Musica {
 
@@ -25,6 +21,7 @@ class Musica {
     //  *********
     protected:
     int codigo;
+
 
     public:
     Musica(const string& t, const string& a){
@@ -51,11 +48,6 @@ class Musica {
 
 };
 
-/* 2. Crie uma classe chamada `MusicaLocal` que herde publicamente da classe `Musica`. Esta classe deve ter os seguintes membros:
-   - Um membro de dados privado `caminhoArquivo` para armazenar o caminho do arquivo da música.
-   - Um construtor que aceite três parâmetros para inicializar o título, o artista e o caminho do arquivo.
-   - Uma implementação da função `tocar()` que "toca" a música local, exibindo uma mensagem que inclui o título, o artista e o caminho do arquivo. */
-
 class MusicaLocal : public Musica {
      
     int caminho_arquivo;
@@ -81,12 +73,7 @@ class MusicaLocal : public Musica {
 	};
 };
 
-/*3. Crie outra classe chamada `MusicaStreaming` que também herde publicamente da classe `Musica`. Esta classe deve ter os seguintes membros:
-   - Um membro de dados privado `url` para armazenar a URL da música.
-   - Um construtor que aceite três parâmetros para inicializar o título, o artista e a URL.
-   - Uma implementação da função `tocar()` que "toca" a música de streaming, exibindo uma mensagem que inclui o título, o artista e a URL.*/
-
-   class MusicaStreaming : public Musica {
+class MusicaStreaming : public Musica {
      
     int url;
 
@@ -101,19 +88,51 @@ class MusicaLocal : public Musica {
         url = u;
     };
 
-    void tocar() const override {
-        cout << "Tocando a música local: " << get_titulo() << " - " << get_artista() << " (" << caminho_arquivo << ")" << endl;
-    };
-
     void tocar() {
 		cout << "URL:" << url << endl;
 		Musica::print_info();
 	};
 };
 
-/* 4. No `main()`, crie objetos das classes `MusicaLocal` e `MusicaStreaming`, armazene-os em um vetor de ponteiros para `Musica`, e então percorra o vetor, chamando a função `tocar()` para cada música. Isso demonstrará a ligação dinâmica em ação. */
+/* 1. Crie uma classe `Podcast` que herde publicamente da classe `Musica`. Esta classe deve ter os seguintes membros:
 
-#include <vector>
+   - Um membro de dados privado `apresentador` para armazenar o nome do apresentador do podcast.
+   - Um membro de dados privado `episodios` para armazenar a lista de episódios do podcast.
+   - Um construtor que aceite três parâmetros para inicializar o título, o artista (neste caso, pode ser a rede ou o produtor do podcast) e o apresentador.
+   - Uma função `AdicionarEpisodio()` para adicionar episódios à lista.
+   - Uma implementação da função `tocar()` que "toca" o podcast, exibindo uma mensagem que inclui o título, a rede, o apresentador e a lista de episódios.  */
+
+class Podcast : public Musica {
+
+    string apresentador;
+    std::vector <string> episodios;
+
+    public:
+
+    Podcast(const string& t, const string& a, const string* a): Musica(t, a){
+        a = apresentador;
+        codigo = 3;
+    };
+
+    string get_apresentador(){ return apresentador; };
+    void set_apresentador(const string& a){
+        a = apresentador;
+    };
+
+    void AdicionarEpisodio(const string* episodio){
+        episodios.push_back(episodio);
+    };
+
+    /******/
+    void tocar() {
+        cout << "Tocando o podcast: " << titulo << " - " << artista << " (Apresentador: " << apresentador << ")" << endl;
+        cout << "Episódios:" << endl;
+        for (const string& episodio : episodios) {
+            cout << "- " << episodio << endl;
+        };
+    };
+};
+
 
 int main(){
 
