@@ -1,0 +1,106 @@
+**Exercício: Sistema de biblioteca Universitária**
+
+Considere um sistema de gerenciamento de uma biblioteca universitária. Nesse sistema, temos diferentes tipos de usuários, incluindo estudantes e professores, e diferentes tipos de materiais, como livros e revistas acadêmicas. Vamos explorar ainda mais os conceitos, incluindo mais sobrecargas de operadores e detalhes adicionais.
+
+Crie as seguintes classes:
+
+1. **`usuario`** (classe base abstrata)
+   - Atributos privados: `nome`, `idade`.
+   - Método construtor para inicializar `nome` e `idade`.
+   - Método virtual puro `exibir_detalhes()` que exibe informações gerais do usuário.
+   - Sobrecarga do operador `<<` para exibir detalhes do usuário.
+   - Método virtual `tipo_usuario()` que retorna o tipo de usuário.
+
+2. **`estudante`** (herda de `usuario`)
+   - Atributos privados adicionais: `matricula`, `curso`.
+   - Método construtor que chama o construtor da classe base e inicializa a `matricula` e `curso`.
+   - Método `exibir_detalhes()` sobrescrito para exibir informações específicas de estudantes, incluindo a matrícula e o curso.
+   - Sobrecarga do operador `<<` para exibir detalhes do estudante.
+   - Implementa o método virtual `tipo_usuario()` para retornar "estudante".
+
+3. **`professor`** (herda de `usuario`)
+   - Atributos privados adicionais: `departamento`.
+   - Método construtor que chama o construtor da classe base e inicializa o `departamento`.
+   - Método `exibir_detalhes()` sobrescrito para exibir informações específicas de professores, incluindo o departamento.
+   - Sobrecarga do operador `<<` para exibir detalhes do professor.
+   - Implementa o método virtual `tipo_usuario()` para retornar "professor".
+
+4. **`material`** (classe base abstrata)
+   - Atributo privado: `titulo`.
+   - Método construtor para inicializar o `titulo`.
+   - Método virtual puro `exibir_detalhes()` que exibe informações gerais do material.
+   - Sobrecarga do operador `<<` para exibir detalhes do material.
+
+5. **`livro`** (herda de `material`)
+   - Atributos privados adicionais: `autor`, `ano_publicacao`.
+   - Método construtor que chama o construtor da classe base e inicializa o `autor` e `ano_publicacao`.
+   - Método `exibir_detalhes()` sobrescrito para exibir informações específicas de livros, incluindo autor e ano de publicação.
+   - Sobrecarga do operador `<<` para exibir detalhes do livro.
+
+6. **`revista`** (herda de `material`)
+   - Atributo privado adicional: `numero_edicao`.
+   - Método construtor que chama o construtor da classe base e inicializa o `numero_edicao`.
+   - Método `exibir_detalhes()` sobrescrito para exibir informações específicas de revistas, incluindo o número da edição.
+   - Sobrecarga do operador `<<` para exibir detalhes da revista.
+
+7. **`emprestimo`**
+   - Atributos privados: `usuario`, `material`, `data_emprestimo`.
+   - Método construtor para inicializar `usuario`, `material` e `data_emprestimo`.
+   - Método `exibir_detalhes()` que exibe informações sobre o empréstimo.
+   - Sobrecarga do operador `+` para criar um empréstimo juntando o conteúdo de dois empréstimos.
+   - Sobrecarga do operador `<<` para exibir detalhes do empréstimo.
+
+8. **`biblioteca`**
+   - Atributos privados:
+     - Um vetor dinâmico de ponteiros para `usuario` para armazenar todos os usuários.
+     - Um vetor dinâmico de ponteiros para `material` para armazenar todos os materiais.
+     - Um vetor dinâmico de objetos `emprestimo` para rastrear empréstimos.
+   - Métodos públicos:
+     - `adicionar_usuario(usuario* usr)`: Adiciona um usuário à lista de usuários.
+     - `adicionar_material(material* mat)`: Adiciona um material à lista de materiais.
+     - `listar_usuarios()`: Lista todos os usuários com seus detalhes.
+     - `listar_materiais()`: Lista todos os materiais com seus detalhes.
+     - `emprestar_material(usuario* usr, material* mat)`: Registra um empréstimo de material por um usuário.
+     - `devolver_material(usuario* usr, material* mat)`: Registra a devolução de um material por um usuário.
+     - `listar_emprestimos()`: Lista todos os empréstimos ativos com detalhes.
+     - `desalocar_recursos()`: Libera a memória alocada dinamicamente para usuários, materiais e empréstimos.
+
+Finalmente crie uma função main() que crie uma biblioteca com 4 materiais (2 livros e 2 revistas) e 2 usuários (1 professor e 1 estudante), e realize 2 empréstimos (de materiais diferentes para usuários diferentes).
+
+______________________________________________________________________________________________________
+
+
+**Exercício: Sistema de gerenciamento de funcionários de uma empresa**
+
+Considere um sistema de gerenciamento de funcionários em uma empresa. Crie as seguintes classes:
+
+1. **`funcionario`** (classe base)
+   - Atributos privados: `nome`, `idade`.
+   - Método construtor para inicializar `nome` e `idade`.
+   - Método `exibir_detalhes()` que exibe informações gerais do funcionário.
+   - Sobrecarga do operador `<<` para exibir detalhes do funcionário.
+   
+2. **`gerente`** (herda publicamente de `funcionario`)
+   - Atributos privados adicionais: `departamento`, `nivel_acesso`.
+   - Método construtor que chama o construtor da classe base e inicializa o `departamento` e `nivel_acesso`.
+   - Método `exibir_detalhes()` sobrescrito para exibir informações específicas de gerentes, incluindo o departamento e o nível de acesso.
+   - Implementa um método público `definir_nivel_acesso()` que permite configurar o nível de acesso do gerente.
+
+3. **`desenvolvedor`** (herda protegido de `funcionario`)
+   - Atributos privados adicionais: `linguagem_programacao`.
+   - Método construtor que chama o construtor da classe base e inicializa a `linguagem_programacao`.
+   - Método `exibir_detalhes()` sobrescrito para exibir informações específicas de desenvolvedores, incluindo a linguagem de programação.
+
+4. **`analista`** (herda privado de `funcionario`)
+   - Atributos privados adicionais: `projeto_atual`.
+   - Método construtor que chama o construtor da classe base e inicializa o `projeto_atual`.
+   - Método `exibir_detalhes()` sobrescrito para exibir informações específicas de analistas, incluindo o projeto atual.
+   - Implementa um método público `alterar_projeto()` que permite aos analistas alterar o projeto atual.
+
+5. **`funcionario_estagiario`** (herda de `desenvolvedor` e `analista`)
+   - Atributos privados adicionais: `duracao_estagio`.
+   - Método construtor que chama os construtores das classes base e inicializa a `duracao_estagio`.
+   - Método `exibir_detalhes()` sobrescrito para exibir informações específicas de estagiários, incluindo a duração do estágio.
+
+Agora, crie na função main() objetos dessas classes e demonstre as relações de herança e acesso aos membros de cada classe. Certifique-se de criar instâncias de todas as classes e demonstrar como os atributos e métodos herdados são acessados em cada caso.
+
