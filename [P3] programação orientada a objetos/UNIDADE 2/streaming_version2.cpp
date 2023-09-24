@@ -6,10 +6,7 @@
 #include <string>
 #include <vector>
 
-using std::string;
-using std::cin;
-using std::cout;
-using std::endl;
+using namespace std;
 
 /* 2. Modifique a classe `Musica` para incluir um método protegido `tocarIntro()`. Este método deve exibir uma mensagem genérica indicando que a música está prestes a ser tocada. */
 
@@ -18,70 +15,61 @@ class Musica {
     string titulo;
     string artista;
 
-    //  *********
-    protected:
-    int codigo;
+protected:
 
+    void tocarIntro(){
+        cout << "Sua musica sera tocada em 5 segundos.." << endl;
+    };
 
     public:
-    Musica(const string& t, const string& a){
-        t = titulo;
-        a = artista;
-    };
+    Musica(string t, string a): titulo(t), artista(a){};
 
     string get_titulo() { return titulo;};
     void set_titulo (const string& t){
-        t = titulo;
+        titulo = t;
     };
 
     string get_artista() { return artista; };
     void set_artista(const string& a){
-        a = artista;
+        artista = a;
     };
 
     void print_info(){
         cout << "Titulo: " << titulo << endl;
         cout << "Artista: " << artista << endl;
+        cout << endl;
     };
 
-    virtual void tocar() const = 0;
+    virtual void tocar(){
+        cout << "Tocando musica" << endl;
+        cout << endl;
+    };
 
 };
 
 class MusicaLocal : public Musica {
-     
+
     int caminho_arquivo;
 
     public:
-    Musicalocal(const string& t, const string& a, int c) : Musica (t, a){
-        c = caminho_arquivo;
-        codigo = 1;
-    };
+    MusicaLocal(string t, string a, int c) : Musica(t,a), caminho_arquivo(c){};
 
     int get_caminho_arquivo() { return caminho_arquivo; };
     void set_caminho_arquivo(int c){
         caminho_arquivo = c;
     };
 
-    void tocar() const override {
-        std::cout << "Tocando a música local: " << get_titulo() << " - " << get_artista() << " (" << caminho_arquivo << ")" << std::endl;
+    void tocar(){
+        cout << "Tocando a musica local: " << get_titulo() << " - " << get_artista() << " (" << caminho_arquivo << ")" << endl;
     };
-
-    void tocar() {
-		cout << "Caminho do arquivo:" << caminho_arquivo << endl;
-		Musica::print_info();
-	};
 };
 
 class MusicaStreaming : public Musica {
-     
+
     int url;
 
     public:
-    MusicaStreaming (const string& t, const string& a, int u) : Musica (t, a){
-        url = u;
-        codigo = 2;
-    };
+    MusicaStreaming (string t, string a, int u) : Musica (t, a), url(u){};
 
     int get_url() { return url; };
     void set_url(int u){
@@ -105,26 +93,23 @@ class MusicaStreaming : public Musica {
 class Podcast : public Musica {
 
     string apresentador;
-    std::vector <string> episodios;
+    vector<string> episodios;
 
     public:
 
-    Podcast(const string& t, const string& a, const string* a): Musica(t, a){
-        a = apresentador;
-        codigo = 3;
-    };
+    Podcast(string t, string a, string ap): Musica(t, a), apresentador(ap){};
 
     string get_apresentador(){ return apresentador; };
-    void set_apresentador(const string& a){
-        a = apresentador;
+    void set_apresentador(const string& ap){
+        apresentador = ap;
     };
 
     void AdicionarEpisodio(const string* episodio){
         episodios.push_back(episodio);
     };
 
-    /******/
-    void tocar() {
+    void tocar(){
+        tocarIntro();
         cout << "Tocando o podcast: " << titulo << " - " << artista << " (Apresentador: " << apresentador << ")" << endl;
         cout << "Episódios:" << endl;
         for (const string& episodio : episodios) {
@@ -133,22 +118,51 @@ class Podcast : public Musica {
     };
 };
 
+class PodcastPremium : private Podcast{
 
-int main(){
+    int preco;
 
-    MusicaLocal musicaLocal("Música Local 1", "Artista Local", "/caminho/para/musica1.mp3");
-    MusicaStreaming musicaStreaming("Música Streaming 1", "Artista Streaming", "https://exemplo.com/streaming1");
+public:
+    PodcastPremium(string t, string a, string ap, int p) : Podcast(t, a, ap), preco(p){};
 
-    // Criando um vetor de ponteiros para a classe Musica
-    std::vector <Musica*> playlist;
+    void tocarPremium(){
+    tocarIntro();
+    cout << "Tocando podcast premium" << endl; }
 
-    // Adicionando os objetos ao vetor
-    playlist.push_back(&musicaLocal);
-    playlist.push_back(&musicaStreaming);
+    void adicionarEpisodio(const string& episodio) {
+        Podcast::adicionarEpisodio(episodio);
+    }
+};
 
-    // Tocando todas as músicas da playlist
-    for (const Musica* musica : playlist) {
-        musica->tocar();
+int main(void){
+
+    vector<Musica*> playlist;
+
+    MusicaLocal* m1 = new MusicaLocal("style", "taylor swift", 1989);
+    MusicaLocal* m2 = new MusicaLocal("Escapism.", "Umadiva", 7372);
+
+    playlist.push_back(m1);
+    playlist.push_back(m2);
+
+    MusicaStreaming* m3 = new MusicaStreaming("I'm just ken", "barbiethemovie", 12345678);
+    MusicaStreaming* m4 = new MusicaStreaming("The boy is mine", "anthem", 87658);
+
+    playlist.push_back(m3);
+    playlist.push_back(m3);
+
+    Podcast podcast("Podcast Legal", "Minha Rede", "João");
+    podcast.adicionarEpisodio("Episódio 1");
+    podcast.adicionarEpisodio("Episódio 2");
+    playlist.push_back(&podcast);
+
+    PodcastPremium podcastPremium("Podcast Premium", "Minha Rede", "Maria", 9.99);
+    podcastPremium.adicionarEpisodio("Episódio 1 (Premium)");
+    playlist.push_back(&podcastPremium);
+
+
+    for (const auto& musicaAtual: playlist){
+        musicaAtual -> tocar ();
+        delete musicaAtual;
     };
 
     return 0;

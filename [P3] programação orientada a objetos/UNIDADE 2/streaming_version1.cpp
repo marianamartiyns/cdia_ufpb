@@ -1,100 +1,62 @@
-/* 1) Sistema de Streaming
-
-**Objetivo do Exercício:** Criar uma hierarquia de classes que simule um sistema de streaming de música. */
-
 #include <iostream>
 #include <string>
 
-using std::string;
-using std::cin;
-using std::cout;
-using std::endl;
-
-/* 1. Crie uma classe abstrata (VIRTUAL) chamada `Musica`, que representará uma música genérica no sistema. Esta classe deve ter os seguintes membros:
-
-   - Um membro de dados privado `titulo` para armazenar o título da música.
-   - Um membro de dados privado `artista` para armazenar o nome do artista.
-   - Um construtor que aceite dois parâmetros para inicializar o título e o artista.
-   - Uma função membro virtual pura chamada `tocar()` que será usada para "tocar" a música.  */
+using namespace std;
 
 class Musica {
 
     string titulo;
     string artista;
 
-    //  *********
-    protected:
-    int codigo;
-
     public:
-    Musica(const string& t, const string& a){
-        t = titulo;
-        a = artista;
-    };
+    Musica(string t, string a): titulo(t), artista(a){};
 
     string get_titulo() { return titulo;};
     void set_titulo (const string& t){
-        t = titulo;
+        titulo = t;
     };
 
     string get_artista() { return artista; };
     void set_artista(const string& a){
-        a = artista;
+        artista = a;
     };
 
     void print_info(){
         cout << "Titulo: " << titulo << endl;
         cout << "Artista: " << artista << endl;
+        cout << endl;
     };
 
-    virtual void tocar() const = 0;
+    virtual void tocar(){
+        cout << "Tocando musica" << endl;
+        cout << endl;
+    };
 
 };
 
-/* 2. Crie uma classe chamada `MusicaLocal` que herde publicamente da classe `Musica`. Esta classe deve ter os seguintes membros:
-   - Um membro de dados privado `caminhoArquivo` para armazenar o caminho do arquivo da música.
-   - Um construtor que aceite três parâmetros para inicializar o título, o artista e o caminho do arquivo.
-   - Uma implementação da função `tocar()` que "toca" a música local, exibindo uma mensagem que inclui o título, o artista e o caminho do arquivo. */
-
 class MusicaLocal : public Musica {
-     
+
     int caminho_arquivo;
 
     public:
-    Musicalocal(const string& t, const string& a, int c) : Musica (t, a){
-        c = caminho_arquivo;
-        codigo = 1;
-    };
+    MusicaLocal(string t, string a, int c) : Musica(t,a), caminho_arquivo(c){};
 
     int get_caminho_arquivo() { return caminho_arquivo; };
     void set_caminho_arquivo(int c){
         caminho_arquivo = c;
     };
 
-    void tocar() const override {
-        std::cout << "Tocando a música local: " << get_titulo() << " - " << get_artista() << " (" << caminho_arquivo << ")" << std::endl;
+    void tocar(){
+        cout << "Tocando a musica local: " << get_titulo() << " - " << get_artista() << " (" << caminho_arquivo << ")" << endl;
     };
-
-    void tocar() {
-		cout << "Caminho do arquivo:" << caminho_arquivo << endl;
-		Musica::print_info();
-	};
 };
 
-/*3. Crie outra classe chamada `MusicaStreaming` que também herde publicamente da classe `Musica`. Esta classe deve ter os seguintes membros:
-   - Um membro de dados privado `url` para armazenar a URL da música.
-   - Um construtor que aceite três parâmetros para inicializar o título, o artista e a URL.
-   - Uma implementação da função `tocar()` que "toca" a música de streaming, exibindo uma mensagem que inclui o título, o artista e a URL.*/
+class MusicaStreaming : public Musica {
 
-   class MusicaStreaming : public Musica {
-     
     int url;
 
     public:
-    MusicaStreaming (const string& t, const string& a, int u) : Musica (t, a){
-        url = u;
-        codigo = 2;
-    };
+    MusicaStreaming (string t, string a, int u) : Musica (t, a), url(u){};
 
     int get_url() { return url; };
     void set_url(int u){
@@ -107,25 +69,27 @@ class MusicaLocal : public Musica {
 	};
 };
 
-/* 4. No `main()`, crie objetos das classes `MusicaLocal` e `MusicaStreaming`, armazene-os em um vetor de ponteiros para `Musica`, e então percorra o vetor, chamando a função `tocar()` para cada música. Isso demonstrará a ligação dinâmica em ação. */
-
 #include <vector>
 
-int main(){
+int main(void){
 
-    MusicaLocal musicaLocal("Música Local 1", "Artista Local", "/caminho/para/musica1.mp3");
-    MusicaStreaming musicaStreaming("Música Streaming 1", "Artista Streaming", "https://exemplo.com/streaming1");
+    vector<Musica*> playlist;
 
-    // Criando um vetor de ponteiros para a classe Musica
-    std::vector <Musica*> playlist;
+    MusicaLocal* m1 = new MusicaLocal("style", "taylor swift", 1989);
+    MusicaLocal* m2 = new MusicaLocal("Escapism.", "Umadiva", 7372);
 
-    // Adicionando os objetos ao vetor
-    playlist.push_back(&musicaLocal);
-    playlist.push_back(&musicaStreaming);
+    playlist.push_back(m1);
+    playlist.push_back(m2);
 
-    // Tocando todas as músicas da playlist
-    for (const Musica* musica : playlist) {
-        musica->tocar();
+    MusicaStreaming* m3 = new MusicaStreaming("I'm just ken", "barbiethemovie", 12345678);
+    MusicaStreaming* m4 = new MusicaStreaming("The boy is mine", "anthem", 87658);
+
+    playlist.push_back(m3);
+    playlist.push_back(m3);
+
+    for (const auto& musicaAtual: playlist){
+        musicaAtual -> tocar ();
+        delete musicaAtual;
     };
 
     return 0;
