@@ -1,4 +1,4 @@
-#include "tudao.h"
+#include "hash.h"
 #include <iostream>
 
 using namespace std;
