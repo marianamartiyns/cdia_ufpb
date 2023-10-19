@@ -1,4 +1,4 @@
-## Programação: Ciência de Dados e Inteligência Artificial
+## Ciência de Dados e Inteligência Artificial
 
 Repositório criado para guardar a maioria dos meus projetos e exercicíos relacionados ao curso de gradução de [CDIA](https://sigaa.ufpb.br/sigaa/public/curso/portal.jsf?id=14289031&lc=pt_BR) da UFPB. 
 
