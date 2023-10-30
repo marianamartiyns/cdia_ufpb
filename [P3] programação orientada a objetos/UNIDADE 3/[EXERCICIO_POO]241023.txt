@@ -1,0 +1,23 @@
+**Exercício 1: Sistema de Gerenciamento de Contatos**
+
+Crie uma classe `Contato` que armazena informações de nome, telefone e email de uma pessoa. Implemente um sistema de gerenciamento de contatos que permita adicionar, remover e listar contatos. Utilize um `std::vector` para armazenar os objetos `Contato`.
+
+**Exercício 2: Banco de Dados de Estudantes**
+
+Crie uma classe `Estudante` que armazena informações como nome, idade e matrícula de um estudante. Implemente um banco de dados de estudantes que permita adicionar, remover, listar e buscar estudantes pelo nome. Utilize um `std::map` com o nome do estudante como chave.
+
+**Exercício 3: Sistema de Reservas de Voo**
+
+Crie uma classe `Voo` que armazena informações sobre voos, como número do voo, origem, destino e data de partida. Implemente um sistema de reservas de voos que permita adicionar voos, listar voos disponíveis e reservar lugares em um voo. Utilize um `std::vector` para armazenar objetos `Voo`.
+
+**Exercício 4: Gerenciador de Tarefas (To-Do List)**
+
+Crie uma classe `Tarefa` que armazena informações sobre tarefas, como descrição, data de vencimento e estado (concluída ou não). Implemente um gerenciador de tarefas que permita adicionar, remover, listar e marcar tarefas como concluídas. Utilize um `std::list` para armazenar objetos `Tarefa`.
+
+**Exercício 5: Sistema de Biblioteca**
+
+Crie uma classe `Livro` que armazena informações sobre livros, como título, autor e ano de publicação. Implemente um sistema de biblioteca que permita adicionar, remover, listar e buscar livros por título ou autor. Utilize um `std::map` com o título do livro como chave e um `std::multimap` com o autor como chave.
+
+---------------------------------------------
+
+Cada um desses exercícios envolve o uso de classes, contêineres da STL (como `std::vector`, `std::map`, `std::list` e `std::multimap`) e algoritmos para realizar operações de gerenciamento de dados com objetos. Eles são representativos de situações reais em que a programação orientada a objetos e a STL são aplicadas para criar sistemas e soluções práticas.
