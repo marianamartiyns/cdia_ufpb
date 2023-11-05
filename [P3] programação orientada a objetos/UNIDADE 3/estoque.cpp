@@ -31,11 +31,11 @@ class produto{
     T descricao;
     int numero_serie;
     float preco;
-    int quant_estoque;
+    int quantidade_estoque;
 
 public:
 
-    produto(const string& n, const string& T d, int ns, float p, int qe) : nome(n), descricao(d), numero_serie(ns), preco(p), quant_estoque(qe);
+    produto(const string& n, const T& d, int ns, float p, int qe) : nome(n), descricao(d), numero_serie(ns), preco(p), quantidade_estoque(qe) {}
 
     // Getters
     string get_nome() {return nome;}
@@ -52,12 +52,11 @@ public:
     void set_quantidade_estoque(int qe) { quantidade_estoque = qe;}
 
     void print_info() {
-        cout << "Produto: " << endl;
-        cout << "Nome: " << endl;
-        cout << "Descricao: " << endl;
-        cout << "Numero de Serie: " << endl;
-        cout << "Preco: " << endl;
-        cout << "Quantidade em Estoque: " << endl;
+        cout << "Produto: " << nome << endl;
+        cout << "Descrição: " << descricao << endl;
+        cout << "Número de Série: " << numero_serie << endl;
+        cout << "Preço: " << preco << endl;
+        cout << "Quantidade em Estoque: " << quantidade_estoque << endl;
     }
 
     void add_estoque(int q) { quantidade_estoque += q;}
@@ -138,6 +137,44 @@ public:
         - Adicionar produtos ao carrinho de compras.
         - Finalizar uma compra, que envolve a transferência dos produtos do carrinho para o histórico de compras do cliente. */
 
+class cliente {
+
+    string nome;
+    int id;
+    vector<produto*> carrinho;
+    svector<produto*> historico_compras;
+
+public:
+    cliente(const string& n, int id) : nome(n), id(id) {}
+
+    // Método para adicionar produtos ao carrinho de compras
+    void adicionar_ao_carrinho(produto* p) {
+        carrinho.push_back(p);
+        cout << "Produto adicionado ao carrinho: " << p->get_nome() << endl;
+    }
+
+    // Método para finalizar uma compra
+    void finalizar_compra() {
+
+        if (carrinho.empty()) {
+            cout << "Carrinho vazio. Nenhuma compra realizada." << endl;
+            return;
+        }
+
+        cout << "Compra finalizada para o cliente " << nome << " (ID: " << id << "). Itens comprados:" << endl;
+        for (produto* p : carrinho) {
+
+            historico_compras.push_back(p);
+            cout << " - " << p->get_nome() << endl;
+        }
+        carrinho.clear(); // Limpar o carrinho após a compra
+    }
+
+    // Getter para o histórico de compras
+    const std::vector<produto*>& get_historico_compras() const {
+        return historico_compras;
+    }
+};
 
 
 /* 4. **Classe `loja`**:
@@ -148,8 +185,80 @@ public:
 Implemente o sistema de gerenciamento de estoque conforme os requisitos acima,
 incorporando tratamento de exceções para lidar com situações de erro, como preços inválidos, estoque insuficiente e operações inválidas. */
 
+class loja {
 
+     gerenciador_estoque* estoque;
 
+public:
+    loja(gerenciador_estoque* ge) : estoque(ge) {}
+
+    // Método para atender um cliente
+    void atender_cliente(cliente* c) {
+        cout << "Bem-vindo à nossa loja, " << c->get_nome() << " (ID: " << c->get_id() << ")!" << endl;
+        cout << "Produtos disponíveis para compra:" << endl;
+
+        estoque->list_produtos(); // Listar os produtos disponíveis no estoque
+
+        // O cliente pode adicionar produtos ao carrinho
+        string escolha;
+        do {
+            cout << "Digite o nome do produto que deseja adicionar ao carrinho (ou 'sair' para finalizar): ";
+            cin >> escolha;
+            if (escolha == "sair") {
+                break;
+            }
+
+            produto* p = estoque->encontrar_produto_por_nome(escolha);
+            if (p) {
+                c->adicionar_ao_carrinho(p);
+            } else {
+                cout << "Produto não encontrado no estoque. Por favor, escolha um produto válido." << endl;
+            }
+        } while (true);
+
+        // O cliente pode finalizar a compra
+        c->finalizar_compra();
+
+        cout << "Obrigado por sua compra, " << c->get_nome() << " (ID: " << c->get_id() << ")!" << endl;
+    }
+};
+
+gerenciador_estoque* gerenciador_estoque::_instance = NULL;
+
+int main(void) {
+
+	gerenciador_estoque* ge = gerenciador_estoque::get_instance();
+
+	produto<string>* p1 =
+		new produto(string("celular"), string("celular bom"),
+			    1234, 1000, 100);
+
+	produto<string>* p2 =
+		new produto(string("tablet"), string("tablet bom"),
+			    4321, 2000, 50);
+
+	produto<string>* p3 =
+		new produto(string("notebook"), string("notebook show"),
+			    5432, 5000, 10);
+
+	ge->add_produto(p1);
+	ge->add_produto(p2);
+	ge->add_produto(p3);
+
+	ge->list_produtos();
+
+	cout << "Quantidade de produtos: " << ge->get_contador_produtos() << endl;
+	cout << "Valor total do estoque: " << ge->get_valor_total() << endl;
+
+	cout << "Info produto mais caro: ";
+	ge->get_mais_caro()->print_info();
+
+	delete p1;
+    delete p2;
+    delete p3;
+
+	return 0;
+}
 
 
 
