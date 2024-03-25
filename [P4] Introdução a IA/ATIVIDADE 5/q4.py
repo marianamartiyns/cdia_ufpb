@@ -1,63 +1,146 @@
 '''Escolha um outro problema que pode ser resolvido por busca e resolva-o utilizando busca em largura e busca em profundidade. Mostre as mudanças que foram necessárias no código e o passo-a-passo da solução.
 
-PROBLEMA ESCOLHIDO: Medir exatamente 4 litros usando garrafas de 3, 5 e 8 litros
+PROBLEMA ESCOLHIDO: O problema dos Missionários e Canibais é um tipo de problema de busca em que o objetivo é transferir missionários e canibais de uma margem do rio para a outra, utilizando um barco, seguindo algumas regras específicas para garantir que os missionários não sejam superados em número pelos canibais em nenhuma das margens do rio.
+
+Regras do Problema:
+
+O barco só pode transportar no máximo duas pessoas (missionários ou canibais).
+Em qualquer margem do rio, se houver missionários presentes, o número de canibais não pode ser maior do que o número de missionários, caso contrário, os canibais comeriam os missionários.
+O objetivo do problema (a solução buscada) é transferir todos os missionários e canibais da margem inicial para a margem final, respeitando as regras mencionadas.
 '''
-import q1 # para usar o BuscaLargura()
-import q2_q3 #para usar o BuscaProfundidade()
 
-# Definindo o problema das garrafas
-class ProblemaGarrafas:
-    def __init__(self):
-        self.capacidades = [3, 5, 8]
+# Definindo as constantes
+BUSCA_INICIANDO = 0
+BUSCA_FALHOU = 1
+BUSCA_SUCESSO = 2
+BUSCA_EM_CURSO = 3
 
-    # Definição de objetivo: o objetivo é alcançado quando uma das garrafas tem 4 litros
-    def objetivo(self, no):
-        for garrafa in no.estado:
-            if garrafa == 4:
-                return True
-        return False
+class EstadoMC:
+    def __init__(self, margem_esquerda, margem_direita, barco_na_esquerda):
+        self.margem_esquerda = margem_esquerda
+        self.margem_direita = margem_direita
+        self.barco_na_esquerda = barco_na_esquerda
 
-    # Método para gerar os filhos de um nó
-    def gerar_filhos(self, no):
-        filhos = []
-        for i in range(3):  # Para cada garrafa
-            for j in range(3):  # Para cada outra garrafa
-                if i != j:  # Garrafas diferentes
-                    novo_estado = no.estado[:]
-                    # Despeja a água da garrafa 'i' na garrafa 'j'
-                    quantidade = min(novo_estado[i], self.capacidades[j] - novo_estado[j])
-                    novo_estado[i] -= quantidade
-                    novo_estado[j] += quantidade
-                    filhos.append(NoGarrafas(novo_estado))
-        return filhos
+    def __eq__(self, other):
+        return (self.margem_esquerda == other.margem_esquerda and
+                self.margem_direita == other.margem_direita and
+                self.barco_na_esquerda == other.barco_na_esquerda)
 
-    # Método para retornar o estado inicial do problema
-    def inicial(self):
-        return NoGarrafas([0, 0, 8])  # Estado inicial: [0, 0, 8]
+    def __str__(self):
+        return f'Margem Esquerda: {self.margem_esquerda}, Margem Direita: {self.margem_direita}, Barco na Esquerda: {self.barco_na_esquerda}'
 
-# Definindo a classe NoGarrafas
-class NoGarrafas:
-    def __init__(self, estado):
-        self.estado = estado
+    def __repr__(self):
+        return self.__str__()
 
-    # Implementação do método __eq__ para comparação de nós
-    def __eq__(self, outro):
-        return self.estado == outro.estado
+    def operacoes_possiveis(self):
+        operacoes = []
+        if self.barco_na_esquerda:
+            for i in range(1, 3):
+                for j in range(i+1):
+                    novo_estado = EstadoMC(self.margem_esquerda - j, self.margem_direita + j,
+                                           not self.barco_na_esquerda)
+                    if self.validar_estado(novo_estado):
+                        operacoes.append(novo_estado)
+        else:
+            for i in range(1, 3):
+                for j in range(i+1):
+                    novo_estado = EstadoMC(self.margem_esquerda + j, self.margem_direita - j,
+                                           not self.barco_na_esquerda)
+                    if self.validar_estado(novo_estado):
+                        operacoes.append(novo_estado)
+        return operacoes
 
-    # Implementação do método __hash__ para uso em conjuntos
-    def __hash__(self):
-        return hash(str(self.estado))
+    def validar_estado(self, estado):
+        if (estado.margem_esquerda < 0 or estado.margem_direita < 0 or
+            estado.margem_esquerda > 3 or estado.margem_direita > 3):
+            return False
+        if (estado.margem_esquerda != 0 and estado.margem_esquerda < estado.margem_direita) or \
+                (estado.margem_direita != 0 and estado.margem_direita < estado.margem_esquerda):
+            return False
+        return True
 
-    # Método para gerar os filhos do nó
-    def filhos(self, problema):
-        return problema.gerar_filhos(self)
+    def objetivo(self):
+        return self.margem_esquerda == 0 and self.margem_direita == 3 and not self.barco_na_esquerda
 
 
+class ProblemaMC:
+    def __init__(self, inicial):
+        self.inicial = inicial
 
-# Criando uma instância do problema das garrafas e da busca em largura
-problema_garrafas = ProblemaGarrafas()
-busca_garrafas_largura = q1.BuscaLargura(problema_garrafas)
+    def objetivo(self, estado):
+        return estado.objetivo()
 
-# Executando a busca em largura
-print("Executando busca em largura para o problema das garrafas:")
-busca_garrafas_largura.executar()
+
+class Busca:
+    def __init__(self, problema):
+        self.problema = problema
+        self.fronteira = [problema.inicial]
+        self.visitados = [problema.inicial]
+        self.solucao = []
+        self.situacao = BUSCA_INICIANDO
+
+    def executar(self):
+        while self.situacao != BUSCA_FALHOU and self.situacao != BUSCA_SUCESSO:
+            self.passo_busca()
+
+        if self.situacao == BUSCA_FALHOU:
+            print("Busca falhou")
+        elif self.situacao == BUSCA_SUCESSO:
+            print("\n--> Busca teve sucesso <--")
+            print(f"\nSOLUÇÃO: {self.solucao}\n")
+
+        return
+
+    def passo_busca(self):
+        if (self.situacao == BUSCA_FALHOU):
+            print("Busca falhou")
+            return
+
+        if (self.situacao == BUSCA_SUCESSO):
+            print("---> Busca chegou ao objetivo com sucesso <---")
+            return
+
+        try:
+            no = self.fronteira.pop(0)
+        except IndexError:
+            self.situacao = BUSCA_FALHOU
+            print("Fronteira vazia. Busca falhou.")
+            return
+
+        print(f"\n--> Expandindo nó {no}\n")
+
+        if self.problema.objetivo(no):
+            self.situacao = BUSCA_SUCESSO
+            self.solucao = no
+            print("Objetivo encontrado!\n")
+            return
+
+        for acao in no.operacoes_possiveis():
+            if self.problema.objetivo(acao):
+                self.solucao = acao
+                self.situacao = BUSCA_SUCESSO
+                print("Objetivo encontrado!\n")
+                return
+
+            if acao not in self.visitados:
+                self.fronteira.append(acao)
+                self.visitados.append(acao)
+                print(f"> Adicionando nó {acao} à fronteira")
+        return
+
+
+# Criando o estado inicial
+estado_inicial_mc = EstadoMC(3, 0, True)
+
+# Criando o problema dos Missionários e Canibais
+problema_mc = ProblemaMC(estado_inicial_mc)
+
+# Criando e executando a busca em largura
+busca_largura = Busca(problema_mc)
+print("\n----- Busca em Largura -----\n")
+busca_largura.executar()
+
+# Criando e executando a busca em profundidade
+busca_profundidade = Busca(problema_mc)
+print("\n----- Busca em Profundidade -----\n")
+busca_profundidade.executar()
