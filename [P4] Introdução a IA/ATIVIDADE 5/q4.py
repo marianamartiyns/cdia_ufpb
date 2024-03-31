@@ -8,12 +8,10 @@ O barco só pode transportar no máximo duas pessoas (missionários ou canibais)
 Em qualquer margem do rio, se houver missionários presentes, o número de canibais não pode ser maior do que o número de missionários, caso contrário, os canibais comeriam os missionários.
 O objetivo do problema (a solução buscada) é transferir todos os missionários e canibais da margem inicial para a margem final, respeitando as regras mencionadas.
 '''
-
-# Definindo as constantes
-BUSCA_INICIANDO = 0
-BUSCA_FALHOU = 1
-BUSCA_SUCESSO = 2
-BUSCA_EM_CURSO = 3
+# Constantes para situações da busca
+BUSCA_INICIANDO = "Iniciando"
+BUSCA_FALHOU = "Falhou"
+BUSCA_SUCESSO = "Sucesso"
 
 class EstadoMC:
     def __init__(self, margem_esquerda, margem_direita, barco_na_esquerda):
@@ -35,17 +33,15 @@ class EstadoMC:
     def operacoes_possiveis(self):
         operacoes = []
         if self.barco_na_esquerda:
-            for i in range(1, 3):
-                for j in range(i+1):
-                    novo_estado = EstadoMC(self.margem_esquerda - j, self.margem_direita + j,
-                                           not self.barco_na_esquerda)
+            for i in range(3):
+                for j in range(i + 1):
+                    novo_estado = EstadoMC(self.margem_esquerda - j, self.margem_direita + j, not self.barco_na_esquerda)
                     if self.validar_estado(novo_estado):
                         operacoes.append(novo_estado)
         else:
-            for i in range(1, 3):
-                for j in range(i+1):
-                    novo_estado = EstadoMC(self.margem_esquerda + j, self.margem_direita - j,
-                                           not self.barco_na_esquerda)
+            for i in range(3):
+                for j in range(i + 1):
+                    novo_estado = EstadoMC(self.margem_esquerda + j, self.margem_direita - j, not self.barco_na_esquerda)
                     if self.validar_estado(novo_estado):
                         operacoes.append(novo_estado)
         return operacoes
@@ -92,11 +88,11 @@ class Busca:
         return
 
     def passo_busca(self):
-        if (self.situacao == BUSCA_FALHOU):
+        if self.situacao == BUSCA_FALHOU:
             print("Busca falhou")
             return
 
-        if (self.situacao == BUSCA_SUCESSO):
+        if self.situacao == BUSCA_SUCESSO:
             print("---> Busca chegou ao objetivo com sucesso <---")
             return
 
