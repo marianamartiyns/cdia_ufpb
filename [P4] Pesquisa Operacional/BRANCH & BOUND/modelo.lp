@@ -1,18 +1,25 @@
 \Problem name: 
 
 Minimize
-OBJROW: -2 var(0) -10 var(1) -8 var(2) -7 var(3) -10 var(4) -10 var(5) -6 var(6)
+OBJROW: -2 X.1 -10 X.2 -8 X.3 -7 X.4 -10 X.5 -10 X.6 -6 X.7
 Subject To
-constr(0):  5 var(0) + 7 var(1) + 8 var(2) + var(3) + 7 var(4) + 5 var(5) + 6 var(6) <= 20
-constr(1):  var(0) + 6 var(1) + 4 var(2) + 9 var(3) + 10 var(4) + 6 var(5) + 10 var(6) <= 30
-constr(2):  4 var(0) + 4 var(1) + 4 var(2) + var(3) + 5 var(4) + 5 var(5) + 10 var(6) <= 40
-constr(3):  3 var(0) + 10 var(1) + 8 var(2) + var(3) + 3 var(4) + 3 var(5) + 8 var(6) <= 30
-constr(4):  10 var(0) + 8 var(1) + 9 var(2) + 9 var(3) + 7 var(4) + 6 var(5) + 10 var(6) <= 20
-constr(5):  6 var(0) + 6 var(1) + 3 var(2) + 6 var(3) + 3 var(4) + 7 var(5) + 2 var(6) <= 80
-constr(6):  7 var(0) + 10 var(1) + 7 var(2) + 8 var(3) + 7 var(4) + 8 var(5) + 7 var(6) <= 100
-constr(7):  9 var(0) + 8 var(1) + var(2) + var(3) + 8 var(4) + 10 var(5) + 2 var(6) <= 90
-constr(8):  var(0) + 5 var(1) + 3 var(2) + 10 var(3) + 2 var(4) + 4 var(5) + 9 var(6) <= 70
-constr(9):  9 var(0) + 6 var(1) + var(2) + 4 var(3) + 7 var(4) + 5 var(5) + 10 var(6) <= 60
-constr(10):  5 var(0) + 7 var(1) + 4 var(2) + 4 var(3) + 3 var(4) + 4 var(5) + 10 var(6) <= 40
+constr(0):  5 X.1 + 7 X.2 + 8 X.3 + X.4 + 7 X.5 + 5 X.6 + 6 X.7 <= 20
+constr(1):  X.1 + 6 X.2 + 4 X.3 + 9 X.4 + 10 X.5 + 6 X.6 + 10 X.7 <= 30
+constr(2):  4 X.1 + 4 X.2 + 4 X.3 + X.4 + 5 X.5 + 5 X.6 + 10 X.7 <= 40
+constr(3):  3 X.1 + 10 X.2 + 8 X.3 + X.4 + 3 X.5 + 3 X.6 + 8 X.7 <= 30
+constr(4):  10 X.1 + 8 X.2 + 9 X.3 + 9 X.4 + 7 X.5 + 6 X.6 + 10 X.7 <= 20
+constr(5):  6 X.1 + 6 X.2 + 3 X.3 + 6 X.4 + 3 X.5 + 7 X.6 + 2 X.7 <= 80
+constr(6):  7 X.1 + 10 X.2 + 7 X.3 + 8 X.4 + 7 X.5 + 8 X.6 + 7 X.7 <= 100
+constr(7):  9 X.1 + 8 X.2 + X.3 + X.4 + 8 X.5 + 10 X.6 + 2 X.7 <= 90
+constr(8):  X.1 + 5 X.2 + 3 X.3 + 10 X.4 + 2 X.5 + 4 X.6 + 9 X.7 <= 70
+constr(9):  9 X.1 + 6 X.2 + X.3 + 4 X.4 + 7 X.5 + 5 X.6 + 10 X.7 <= 60
+constr(10):  5 X.1 + 7 X.2 + 4 X.3 + 4 X.4 + 3 X.5 + 4 X.6 + 10 X.7 <= 40
 Bounds
+ 0 <= X.1 <= 1
+ 0 <= X.2 <= 1
+ 0 <= X.3 <= 1
+ 0 <= X.4 <= 1
+ 0 <= X.5 <= 1
+ 0 <= X.6 <= 1
+ 0 <= X.7 <= 1
 End
